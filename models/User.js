@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     email: {
         type: String,
+        trim: true,
         unique: true,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
@@ -18,8 +18,9 @@ const UserSchema = new Schema({
 
     shows: [
         {
-            type: Schema.Types.Number,
-            ref: "Show"
+            type: Schema.Types.ObjectId,
+            ref: "Show",
+            hasWatched: false
         }
     ]
 
