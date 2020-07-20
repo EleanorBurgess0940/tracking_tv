@@ -1,17 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-
 // !!!!!!!!!NOT WORKING YET!!!!!!!!!
 // const routes = require("./routes");
-
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // !!!NOT SURE IF WE NEED THIS!!!
 // const path = require("path");
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -25,9 +22,6 @@ if (process.env.NODE_ENV === "production") {
 // // Add routes, both API and view
 // app.use(routes);
 
-
-
-
 // !!!NOT SURE IF WE NEED THIS!!!
 
 // Send every request to the React app
@@ -39,7 +33,7 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
 });
 
 // Start the API server
