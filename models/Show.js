@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ShowSchema = new Schema({
-    showID: String,
+    TheMovieDBAPIshowID: Number,
 });
 
 const Show = mongoose.model("Show", ShowSchema);
