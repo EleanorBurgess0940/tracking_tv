@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+let session = require("express-session");
+let passport = require("./config/passport");
 // !!!!!!!!!NOT WORKING YET!!!!!!!!!
 // const routes = require("./routes");
 
@@ -17,6 +19,12 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // !!!!!!!!!NOT WORKING YET!!!!!!!!!
 // // Add routes, both API and view
