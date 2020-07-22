@@ -13,47 +13,55 @@ const userSeed = [
     {
         email: "asmith@google.com",
         password: "password1",
-        shows: ""
+        shows: []
     },
     {
         email: "bsmith@google.com",
         password: "password2",
-        shows: ""
+        shows: []
+
     },
     {
         email: "csmith@google.com",
         password: "password3",
-        shows: ""
+        shows: []
+
     },
     {
         email: "dsmith@google.com",
         password: "password4",
-        shows: ""
+        shows: []
+
     },
     {
         email: "esmith@google.com",
         password: "password5",
-        shows: ""
+        shows: []
+
     },
     {
         email: "fsmith@google.com",
         password: "password6",
-        shows: ""
+        shows: []
+
     },
     {
         email: "gsmith@google.com",
         password: "password7",
-        shows: ""
+        shows: []
+
     },
     {
         email: "hsmith@google.com",
         password: "password8",
-        shows: ""
+        shows: []
+
     },
     {
         email: "ismith@google.com",
         password: "password9",
-        shows: ""
+        shows: []
+
     }
 ]
 
@@ -68,3 +76,35 @@ db.User
         console.error(err);
         process.exit(1);
     });
+
+const showSeed = [
+    {
+        TheMovieDBAPIshowID: 1668,
+        name: "Friends",
+        hasWatched: false
+    },
+    {
+        TheMovieDBAPIshowID: 456,
+        name: "The Simpsons",
+        hasWatched: false
+    },
+    {
+        TheMovieDBAPIshowID: 4614,
+        name: "The Simpsons",
+        hasWatched: false
+    }
+]
+
+
+db.Show
+    .remove({})
+    .then(() => db.Show.collection.insertMany(showSeed))
+    .then(data => {
+        console.log(data.result.n + " records inserted!");
+        process.exit(0);
+    })
+    .catch(err => {
+        console.error(err);
+        process.exit(1);
+    });
+
