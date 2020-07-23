@@ -2,15 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 let session = require("express-session");
-let passport = require("./config/passport");
+let passport = require("./config/passport/passport");
 // !!!!!!!!!NOT WORKING YET!!!!!!!!!
-// const routes = require("./routes");
+
+const user = require("./routes/user");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// !!!NOT SURE IF WE NEED THIS!!!
-// const path = require("path");
+const path = require("path");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +21,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+  session({
+    secret: "taco cat",
+    resave: true,
+    saveUninitialized: false,
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -29,7 +33,7 @@ app.use(passport.session());
 // !!!!!!!!!NOT WORKING YET!!!!!!!!!
 // // Add routes, both API and view
 // app.use(routes);
-
+app.use(user);
 // !!!NOT SURE IF WE NEED THIS!!!
 
 // Send every request to the React app

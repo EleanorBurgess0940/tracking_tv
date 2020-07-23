@@ -13,6 +13,7 @@ export default class signUp extends Component {
   }
 
   handleChange(event) {
+    console.log(event.target.name);
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -20,8 +21,6 @@ export default class signUp extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("sign-up handleSubmit, username: ");
-    console.log(this.state.email);
     axios
       .post("/", {
         email: this.state.email,
@@ -37,6 +36,10 @@ export default class signUp extends Component {
         } else {
           console.log("sign-up error");
         }
+      })
+      .catch((error) => {
+        console.log("signup error: ");
+        console.log(error);
       });
   }
 
@@ -70,7 +73,11 @@ export default class signUp extends Component {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block">
+        <button
+          className="btn btn-primary col-1 col-mr-auto"
+          onClick={this.handleSubmit}
+          type="submit"
+        >
           Sign Up
         </button>
         <p className="forgot-password text-right">
