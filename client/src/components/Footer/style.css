@@ -2,7 +2,8 @@
   min-height: 100px;
   background: #e5e5e5;
   position: relative;
-}
+  background-color: darkblue;
+  }
 
 .footer span {
   position: absolute;
@@ -10,5 +11,6 @@
   left: 0;
   right: 0;
   padding: 3px;
-  background: #b8b8b8;
+  background: navy;
+  font-weight: bold;
 }

@@ -23,6 +23,16 @@ function App() {
           <MovieCard />
           <MovieCard />
           <MovieCard />
+          <MovieCard />
+          <MovieCard />
+        </CardWrapper>
+        <CardWrapper>
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
         </CardWrapper>
         <Footer />
       </div>

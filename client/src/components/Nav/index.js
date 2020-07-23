@@ -5,26 +5,26 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <nav>
-      <div class="wrapper">
-        <div class="navbar navbar-light bg-light">
+      <div className="wrapper">
+        <div className="navbar" id="navColor">
           <div id="main-content">
-            <a class="navbar-brand nav-link" href="home.html">
+            <a className="navbar-brand nav-link" href="home.html">
               <h2>
-                <Link className="nav-link" to={"/"}>
+                <Link className="nav-link text-white" to={"/"}>
                   Track Vision
                 </Link>
               </h2>
             </a>
           </div>
           <div id="sidebar">
-            <ul class="navbar list-group list-group-horizontal">
-              <li class="nav-item active">
-                <Link className="nav-link" to={"/signup"}>
+            <ul className="navbar list-group list-group-horizontal">
+              <li className="nav-item active">
+                <Link className="nav-link text-white" to={"/signup"}>
                   Sign up
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link className="nav-link" to={"/login"}>
+              <li className="nav-item">
+                <Link className="nav-link text-white" to={"/login"}>
                   Login
                 </Link>
               </li>
