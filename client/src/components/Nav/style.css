@@ -2,26 +2,14 @@
   padding: 0;
 }
 
-.navbarNav {
-  color: black;
-}
-
 ul {
   list-style-type: none;
-}
-
-h4 {
-  color: black;
-}
-a {
-  color: black;
 }
 
 .nav-link {
   list-style-type: horizontal;
   margin-right: 0;
   float: left;
-  color: black;
   margin-bottom: 0;
 }
 
@@ -29,6 +17,9 @@ a {
   margin-left: 0;
   padding: 20px;
   margin-bottom: 0;
-  color: black;
   width: 20px;
+}
+
+#navColor {
+  background-color: darkblue;
 }

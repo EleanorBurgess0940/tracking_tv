@@ -4,7 +4,7 @@ import "./style.css";
 function Footer() {
   return (
     <footer className="footer">
-      <span>TV Track 2020</span>
+      <span className="text-white">TV Track 2020</span>
     </footer>
   );
 }

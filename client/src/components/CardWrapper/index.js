@@ -6,8 +6,8 @@ function Wrapper(props) {
         <div className="wrapper"></div>
         <div className="row"></div>
         <div className="col-sm"></div>
-        <div className="card-deck">{props.children}</div>;
-        </div>
+        <div className="card-deck">{props.children}</div>
+    </div>
 }
 
 export default Wrapper;
