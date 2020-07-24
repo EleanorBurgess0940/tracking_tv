@@ -1,3 +1,5 @@
+///server
+
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -8,7 +10,7 @@ let passport = require("./config/passport/passport");
 const user = require("./routes/user");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 const path = require("path");
 
