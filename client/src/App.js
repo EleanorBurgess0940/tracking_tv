@@ -5,7 +5,6 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import MovieCard from "./components/MovieCard";
 import CardWrapper from "./components/CardWrapper";
-
 import signUp from "./components/signup/signup.js";
 import Login from "./components/login/login.js";
 import Jumbotron from "./components/Jumbotron";
