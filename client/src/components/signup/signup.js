@@ -13,7 +13,6 @@ export default class signUp extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.name);
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -27,9 +26,7 @@ export default class signUp extends Component {
         password: this.state.password,
       })
       .then((response) => {
-        console.log(response);
         if (response.data) {
-          console.log("successful signup");
           this.setState({
             redirectTo: "/login",
           });
