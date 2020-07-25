@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const tvRoutes = require("./tv");
 
-// Book routes
+// TV routes
 router.use("/tv", tvRoutes);
 
 module.exports = router;

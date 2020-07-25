@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const routes = require("./routes/");
+const user = require("./routes/user");
 
 let session = require("express-session");
 let passport = require("./config/passport/passport");
-// !!!!!!!!!NOT WORKING YET!!!!!!!!!
 
-const user = require("./routes/user");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -30,17 +30,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// !!!!!!!!!NOT WORKING YET!!!!!!!!!
-// // Add routes, both API and view
-// app.use(routes);
-app.use(user);
-// !!!NOT SURE IF WE NEED THIS!!!
 
-// Send every request to the React app
-// Define any API routes before this runs
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+// // Add routes, both API and view
+app.use(user);
+app.use(routes);
+
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {
