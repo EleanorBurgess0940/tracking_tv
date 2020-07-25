@@ -1,8 +1,7 @@
 require('dotenv').config()
 import axios from "axios";
 
-const URL = "https://api.themoviedb.org/3/tv/popular?" + "process.env.MOVIEAPIKEY"
-
+const URL = "https://api.themoviedb.org/3"
 
 export default {
     tvSearch: function (query) {
@@ -10,7 +9,7 @@ export default {
     },
     // Gets all shows
     getShows: function () {
-        return axios.get("/api/tv");
+        return axios.get(URL + "/tv/popular?api_key=49205758457ac69b563ca3dcae265622");
     },
     // Gets shows with the given id
     getShow: function (id) {

@@ -1,16 +1,13 @@
 const router = require("express").Router();
-const tvController = require("../../controllers/tvController");
+const tvControllers = require("../../controllers/tvControllers");
 
 // Matches with "/api/tv"
 router.route("/")
-    .get(tvController.findAll)
-    .post(tvController.create);
+    .get(tvControllers.findAll)
 
 // Matches with "/api/tv/:id"
 router
     .route("/:id")
-    .get(tvController.findById)
-    .put(tvController.update)
-    .delete(tvController.remove);
+    .get(tvControllers.findById)
 
 module.exports = router;
