@@ -2,8 +2,6 @@ import API from "../utils/API";
 import React, { Component } from "react";
 
 import Jumbotron from "../components/Jumbotron";
-import MovieCard from "../components/MovieCard";
-import CardWrapper from "../components/CardWrapper";
 import SearchResults from "../components/searchResults";
 
 class homepage extends Component {
@@ -25,13 +23,15 @@ class homepage extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+
     API.tvSearch(this.state.search)
       .then((res) => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
         console.log(res.data);
-        this.setState({ results: res.data, error: "" });
+        this.setState({ tvShows: res.data.results });
+        console.log(this.state.tvShows);
       })
       .catch((err) => this.setState({ error: err.message }));
   };
@@ -43,22 +43,7 @@ class homepage extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <CardWrapper>
-          <SearchResults />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-        </CardWrapper>
-        <CardWrapper>
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-        </CardWrapper>
+        <SearchResults tvShows={this.state.tvShows} />
       </div>
     );
   }
