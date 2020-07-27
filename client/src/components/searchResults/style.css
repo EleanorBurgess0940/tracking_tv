@@ -1,0 +1,10 @@
+/* This results Css was taken from a demo on Youtube*/
+/* https://www.youtube.com/watch?v=l7ANPZkiWBo*/
+
+.results {
+  display: grid;
+  margin: 20px 0 50px 0;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 1em;
+}

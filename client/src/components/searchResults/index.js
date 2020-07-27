@@ -1,15 +1,22 @@
 import React from "react";
+import TvCard from "../TvCard";
+import "./style.css";
 
 function SearchResults(props) {
-  return (
-    <ul className="list-group search-results">
-      {props.results.map((result) => (
-        <li key={result} className="list-group-item">
-          <h2 src={result}>Name:</h2>
-        </li>
-      ))}
-    </ul>
-  );
+  console.log(props.tvShows);
+  if (typeof props.tvShows != "undefined") {
+    return (
+      <div className="results">
+        {props.tvShows.map((result, i) => {
+          return (
+            <TvCard key={i} name={result.name} poster={result.poster_path} />
+          );
+        })}
+      </div>
+    );
+  } else {
+    return <div> BUBKIS</div>;
+  }
 }
 
 export default SearchResults;
