@@ -3,9 +3,9 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import signUp from "./components/signup/signup.js";
-import Login from "./components/login/login.js";
-import homePage from "./pages/home.js";
+import Signup from "./pages/signup.js";
+import Login from "./pages/login.js";
+import Home from "./pages/home.js";
 
 function App() {
   return (
@@ -13,10 +13,17 @@ function App() {
       <div className="App">
         <Nav />
         <Switch>
-          <Route path="/" component={homePage} />
-          <Route path="/signup" component={signUp} />
-          <Route path="/login" component={Login} />
+          <Route exact path={["/", "/homePage"]}>
+            <Home />
+          </Route>
+          <Route exact path={["/signup"]}>
+            <Signup />
+          </Route>
+          <Route exact path={["/login"]}>
+            <Login />
+          </Route>
         </Switch>
+
         <Footer />
       </div>
     </Router>

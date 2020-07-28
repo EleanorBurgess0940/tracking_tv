@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Login extends Component {
+export default class signUp extends Component {
   constructor() {
     super();
     this.state = {
       email: "",
       password: "",
-      redirectTo: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -21,41 +20,34 @@ export default class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("handleSubmit");
-
     axios
-      .post("/login", {
+      .post("/", {
         email: this.state.email,
         password: this.state.password,
       })
       .then((response) => {
-        console.log("login response: ");
-        console.log(response);
-        if (response.status === 200) {
-          // update App.js state
-          this.props.updateUser({
-            loggedIn: true,
-            email: response.data.email,
-          });
-          // update the state to redirect to home
+        if (response.data) {
           this.setState({
-            redirectTo: "/",
+            redirectTo: "/login",
           });
+        } else {
+          console.log("sign-up error");
         }
       })
       .catch((error) => {
-        console.log("login error: ");
+        console.log("signup error: ");
         console.log(error);
       });
   }
 
   render() {
+    console.log("hmm");
     return (
       <form>
-        <h3>Log In</h3>
+        <h3>Sign Up</h3>
 
         <div className="form-group">
-          <label>Email address</label>
+          <label htmlFor="email">Email address</label>
           <input
             type="text"
             id="email"
@@ -79,26 +71,16 @@ export default class Login extends Component {
           />
         </div>
 
-        <div className="form-group">
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
-          </div>
-        </div>
-
         <button
-          type="submit"
-          className="btn btn-primary btn-block"
+          className="btn btn-primary col-1 col-mr-auto"
           onClick={this.handleSubmit}
+          type="submit"
         >
-          Submit
+          Sign Up
         </button>
+        <p className="forgot-password text-right">
+          Already registered <a href="/login">sign in?</a>
+        </p>
       </form>
     );
   }
