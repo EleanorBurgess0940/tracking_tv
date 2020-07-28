@@ -15,7 +15,11 @@ function SearchResults(props) {
       </div>
     );
   } else {
-    return <div> BUBKIS</div>;
+    return (
+      <div>
+        <h2> Start searching above!</h2>
+      </div>
+    );
   }
 }
 
