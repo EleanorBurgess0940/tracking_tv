@@ -11,7 +11,7 @@ function Nav() {
             <a className="navbar-brand nav-link" href="home.html">
               <h2>
                 <Link className="nav-link text-white" to={"/"}>
-                  Track Vision
+                  ScreenStream
                 </Link>
               </h2>
             </a>
