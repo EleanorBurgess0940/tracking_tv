@@ -1,4 +1,13 @@
 .card {
     border-color: navy;
-    border-radius: 5px;
+    border-width: 3px;
+}
+
+#show-title {
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+}
+
+.btn {
+    margin-bottom: 15px;
 }

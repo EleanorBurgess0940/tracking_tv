@@ -15,13 +15,13 @@ function Jumbotron(props) {
             onChange={props.handleInputChange}
             type="text"
             className="form-control"
-            placeholder="Search a Tv Show"
-            id="breed"
+            placeholder="Search a TV Show"
+            id="show"
           />
           <button
             type="submit"
             onClick={props.handleFormSubmit}
-            className="btn btn-success"
+            className="btn text-white"
           >
             {" "}
             Search

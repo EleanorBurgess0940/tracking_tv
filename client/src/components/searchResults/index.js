@@ -6,10 +6,11 @@ function SearchResults(props) {
   console.log(props.tvShows);
   if (typeof props.tvShows != "undefined") {
     return (
+
       <div className="results">
         {props.tvShows.map((result, i) => {
           return (
-            <TvCard key={i} name={result.name} poster={result.poster_path} />
+            <TvCard key={i} name={result.name} poster={result.poster_path} rating={result.vote_average} />
           );
         })}
       </div>
@@ -17,7 +18,7 @@ function SearchResults(props) {
   } else {
     return (
       <div>
-        <h2> Start searching above!</h2>
+        <h2 > Start searching above!</h2>
       </div>
     );
   }
