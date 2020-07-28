@@ -41,6 +41,7 @@ export default class signUp extends Component {
   }
 
   render() {
+    console.log("hmm");
     return (
       <form>
         <h3>Sign Up</h3>

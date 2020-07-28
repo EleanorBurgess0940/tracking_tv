@@ -1,5 +1,5 @@
 let passport = require("passport");
-const user = require("../../models/User.js");
+const User = require("../../models/User.js");
 const LocalStrategy = require("./localStrategy");
 
 passport.serializeUser(function (user, cb) {
@@ -7,7 +7,14 @@ passport.serializeUser(function (user, cb) {
 });
 
 passport.deserializeUser(function (user, cb) {
-  cb(null, user);
+  User.findOne({ user: user }, "email", (err, user) => {
+    console.log("*** Deserialize user, user:");
+    console.log(user);
+    console.log("--------------");
+    done(null, user);
+  });
 });
+
+passport.use(LocalStrategy);
 
 module.exports = passport;

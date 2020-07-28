@@ -5,11 +5,8 @@ const user = require("./routes/user");
 let session = require("express-session");
 let passport = require("./config/passport/passport");
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-const path = require("path");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -29,10 +26,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 // // Add routes, both API and view
-app.use(user);
-
+app.use("/user", user);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {

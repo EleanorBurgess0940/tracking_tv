@@ -18,7 +18,7 @@ function Nav() {
           </div>
           <div id="sidebar">
             <ul className="navbar list-group list-group-horizontal">
-              <li className="nav-item active">
+              <li className="nav-item">
                 <Link className="nav-link text-white" to={"/signup"}>
                   Sign up
                 </Link>
