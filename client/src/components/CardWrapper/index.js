@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Wrapper(props) {
+function CardWrapper(props) {
     return <div>
         <div className="wrapper"></div>
         <div className="row"></div>
@@ -10,4 +10,4 @@ function Wrapper(props) {
     </div>
 }
 
-export default Wrapper;
+export default CardWrapper;
