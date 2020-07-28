@@ -8,3 +8,7 @@
   grid-auto-rows: 1fr;
   grid-gap: 1em;
 }
+
+.results > .h2 {
+  text-align: center;
+}
