@@ -4,35 +4,26 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav>
-      <div className="wrapper">
-        <div className="navbar" id="navColor">
-          <div id="main-content">
-            <a className="navbar-brand nav-link" href="home.html">
-              <h2>
-                <Link className="nav-link text-white" to={"/"}>
-                  ScreenStream
+    <nav className="navbar navbar-expand-lg navbar-dark" id="navColor">
+      <h2>
+        <Link className="nav-link text-white" to={"/"}>
+          ScreenStream
+                </Link></h2>
+      <button className="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
+        <div>
+          <Link className="nav-link text-white" to={"/signup"}>
+            Sign up
                 </Link>
-              </h2>
-            </a>
-          </div>
-          <div id="sidebar">
-            <ul className="navbar list-group list-group-horizontal">
-              <li className="nav-item">
-                <Link className="nav-link text-white" to={"/signup"}>
-                  Sign up
+          <Link className="nav-link text-white" to={"/login"}>
+            Login
                 </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white" to={"/login"}>
-                  Login
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
 
