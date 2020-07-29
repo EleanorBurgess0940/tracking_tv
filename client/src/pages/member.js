@@ -1,22 +1,18 @@
 import React from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
-import Col from "../components/Column";
 
-function About() {
+function member() {
   return (
     <div>
       <Container>
         <br></br>
         <Row className="centered">
-          <Col size="md-12">
-            <h1> Welcome!</h1>
-            <hr></hr>
-          </Col>
+          <h1> Welcome </h1>
         </Row>
       </Container>
     </div>
   );
 }
 
-export default About;
+export default member;
