@@ -16,16 +16,17 @@ function TvCard(props) {
           />
         </div>
         <div className="card-body text-white">
-          <h4 id="show-title">{props.name}</h4></div>
+          <h4 id="show-title">{props.name}</h4>
+        </div>
         <div>
-          <button type="button" className="btn btn-outline-light">Average rating: {props.rating}</button>
+          <button type="button" className="btn btn-outline-light">
+            Average rating: {props.rating}
+          </button>
         </div>
       </div>
-
     );
   } else {
     return (
-
       <div className="card text-white bg-dark">
         <div className="card-image">
           <img
@@ -36,9 +37,12 @@ function TvCard(props) {
           />
         </div>
         <div className="card-body text-white">
-          <h4 id="show-title">{props.name}</h4></div>
+          <h4 id="show-title">{props.name}</h4>
+        </div>
         <div>
-          <button type="button" className="btn btn-outline-light">Avg. rating: {props.rating}</button>
+          <button type="button" className="btn btn-outline-light">
+            Avg. rating: {props.rating}
+          </button>
         </div>
       </div>
     );
