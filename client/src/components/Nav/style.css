@@ -2,10 +2,6 @@
   padding: 0;
 }
 
-ul {
-  list-style-type: none;
-}
-
 .nav-link {
   list-style-type: horizontal;
   margin-right: 0;
