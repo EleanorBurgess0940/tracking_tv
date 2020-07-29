@@ -5,6 +5,7 @@
 .nav-link {
   list-style-type: horizontal;
   margin-right: 0;
+  float: left;
   margin-bottom: 0;
 }
 
