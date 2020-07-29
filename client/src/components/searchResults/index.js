@@ -10,7 +10,9 @@ function SearchResults(props) {
       <div className="results">
         {props.tvShows.map((result, i) => {
           return (
-            <TvCard key={i} name={result.name} poster={result.poster_path} rating={result.vote_average} />
+            <div>
+              <TvCard key={i} name={result.name} poster={result.poster_path} rating={result.vote_average} />
+            </div>
           );
         })}
       </div>
