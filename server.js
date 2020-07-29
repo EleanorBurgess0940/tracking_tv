@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const user = require("./routes/user");
+const user = require("./routes/user.js");
 
 let session = require("express-session");
 let passport = require("./config/passport/passport");

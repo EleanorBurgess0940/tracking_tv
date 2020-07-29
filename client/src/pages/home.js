@@ -12,8 +12,8 @@ class homepage extends Component {
   };
 
   componentDidMount() {
-    API.getShows()
-      .then((res) => this.setState({ results: res.data.results }))
+    API.getPopular()
+      .then((res) => this.setState({ tvShows: res.data.results }))
       .catch((err) => console.log(err));
   }
 
