@@ -14,11 +14,10 @@ export default {
     );
   },
   // Gets all shows
-  getShows: function () {
-    return axios.get(
-      URL + "/tv/popular?api_key=49205758457ac69b563ca3dcae265622"
-    );
+  getPopular: function () {
+    return axios.get(URL + "/tv/popular?api_key=" + apiKey);
   },
+
   // Gets shows with the given id
   getShow: function (id) {
     return axios.get("/api/tv/" + id);
