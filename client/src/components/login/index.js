@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 export default class login extends Component {
   constructor() {
@@ -8,6 +9,7 @@ export default class login extends Component {
       email: "",
       password: "",
       redirectTo: null,
+      loggedIn: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -33,13 +35,13 @@ export default class login extends Component {
         console.log(response);
         if (response.status === 200) {
           // update App.js state
-          this.props.updateUser({
+          this.setState({
             loggedIn: true,
             email: response.data.email,
           });
           // update the state to redirect to home
           this.setState({
-            redirectTo: "/",
+            redirectTo: "/member",
           });
         }
       })
@@ -50,56 +52,61 @@ export default class login extends Component {
   }
 
   render() {
-    return (
-      <form>
-        <h3>Log In</h3>
+    if (this.state.redirectTo) {
+      console.log(this.state.redirectTo);
+      return <Redirect to={this.state.redirectTo} />;
+    } else {
+      return (
+        <form>
+          <h3>Log In</h3>
 
-        <div className="form-group">
-          <label>Email address</label>
-          <input
-            type="text"
-            id="email"
-            className="form-control"
-            name="email"
-            placeholder="Enter email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            name="password"
-            placeholder="Enter password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <div className="custom-control custom-checkbox">
+          <div className="form-group">
+            <label>Email address</label>
             <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
+              type="text"
+              id="email"
+              className="form-control"
+              name="email"
+              placeholder="Enter email"
+              value={this.state.email}
+              onChange={this.handleChange}
             />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
           </div>
-        </div>
 
-        <button
-          type="submit"
-          className="btn btn-primary btn-block"
-          onClick={this.handleSubmit}
-        >
-          Submit
-        </button>
-      </form>
-    );
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              className="form-control"
+              name="password"
+              placeholder="Enter password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <div className="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                className="custom-control-input"
+                id="customCheck1"
+              />
+              <label className="custom-control-label" htmlFor="customCheck1">
+                Remember me
+              </label>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-primary btn-block"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
+        </form>
+      );
+    }
   }
 }

@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Signup from "./components/signup";
 import Login from "./components/login";
 import Home from "./pages/home.js";
+import Member from "./pages/member.js";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route exact path={["/login"]}>
             <Login />
+          </Route>
+          <Route exact path={["/member"]}>
+            <Member />
           </Route>
         </Switch>
 
