@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark" id="navColor">
-      <h2>
+      <h1>
         <Link className="nav-link text-white app-name" to={"/"}>
           TV Track
-                </Link></h2>
+                </Link></h1>
       <button className="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

@@ -5,15 +5,7 @@
 .nav-link {
   list-style-type: horizontal;
   margin-right: 0;
-  float: left;
   margin-bottom: 0;
-}
-
-.navbar-brand {
-  margin-left: 0;
-  padding: 20px;
-  margin-bottom: 0;
-  width: 20px;
 }
 
 #navColor {
@@ -22,4 +14,5 @@
 
 .app-name {
   font-family: 'Mulish', sans-serif;
+  font-weight: bold;
 }
