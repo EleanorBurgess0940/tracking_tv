@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const User = require("./routes/user.js");
+const routes = require("./routes");
 
 let session = require("express-session");
 let passport = require("./config/passport/passport");
@@ -27,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // // Add routes, both API and view
-app.use(User);
+app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {
