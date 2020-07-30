@@ -4,7 +4,7 @@ import "./style.css";
 function Jumbotron(props) {
   return (
     <div>
-      <div className="jumbotron bg-dark text-white">
+      <div className="jumbotron text-white">
         <h1 className="display-4">Your shows. Your schedule.</h1>
         <p className="lead">
           Find something to watch now. Save shows for later. You're in control.

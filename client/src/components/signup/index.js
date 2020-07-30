@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import "./style.css";
+
 
 export default class signUp extends Component {
   constructor() {
@@ -56,42 +58,47 @@ export default class signUp extends Component {
       return (
         <form>
           <h3>Sign Up</h3>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-6">
+                <div className="form-group">
+                  <label htmlFor="email">Email address</label>
+                  <input
+                    type="text"
+                    id="email"
+                    className="form-control"
+                    name="email"
+                    placeholder="Enter email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
+              <div className="col-sm-6">
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    placeholder="Enter password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email address</label>
-            <input
-              type="text"
-              id="email"
-              className="form-control"
-              name="email"
-              placeholder="Enter email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
+            <button
+              className="btn"
+              onClick={this.handleSubmit}
+              type="submit">Sign Up</button>
+
+            <p className="forgot-password text-center">
+              Already registered? <a href="/login" id="sign-in">Sign in</a>
+            </p>
           </div>
 
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              name="password"
-              placeholder="Enter password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <button
-            className="btn btn-primary col-1 col-mr-auto"
-            onClick={this.handleSubmit}
-            type="submit"
-          >
-            Sign Up
-          </button>
-          <p className="forgot-password text-right">
-            Already registered <a href="/login">sign in?</a>
-          </p>
         </form>
       );
     }

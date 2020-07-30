@@ -6,7 +6,7 @@ function TvCard(props) {
   console.log(props);
   if (props.poster) {
     return (
-      <div className="card text-white bg-dark">
+      <div className="card text-white">
         <div className="card-image">
           <img
             alt={props.name}
@@ -27,7 +27,7 @@ function TvCard(props) {
     );
   } else {
     return (
-      <div className="card text-white bg-dark">
+      <div className="card text-white">
         <div className="card-image">
           <img
             alt={props.name}
