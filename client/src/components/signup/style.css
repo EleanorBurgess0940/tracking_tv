@@ -1,0 +1,16 @@
+.btn {
+    background-color: seagreen;
+    color: white;
+}
+
+#sign-in {
+    color: silver;
+}
+
+.forgot-password {
+    margin-top: 15px;
+}
+
+p {
+    font-weight: bold;
+}

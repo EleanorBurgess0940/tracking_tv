@@ -2,7 +2,7 @@
   min-height: 100px;
   background: #e5e5e5;
   position: relative;
-  background-color: darkblue;
+  background-color: seagreen;
   }
 
 .footer span {
@@ -11,6 +11,6 @@
   left: 0;
   right: 0;
   padding: 3px;
-  background: navy;
+  background-color: #493e3f;
   font-weight: bold;
 }

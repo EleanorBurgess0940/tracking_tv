@@ -16,10 +16,10 @@ function Nav() {
       <div className="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
         <div>
           <Link className="nav-link text-white app-name" to={"/signup"}>
-            Sign up
+            Sign Up
                 </Link>
           <Link className="nav-link text-white app-name" to={"/login"}>
-            Login
+            Log In
                 </Link>
         </div>
       </div>
