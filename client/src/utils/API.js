@@ -22,4 +22,8 @@ export default {
   getShow: function (id) {
     return axios.get("/api/tv/" + id);
   },
+
+  saveShow: function (tvData) {
+    return axios.post("/api/books", tvData);
+  },
 };

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/User.js");
+const Username = require("../models/User.js");
 let passport = require("../config/passport/passport");
 
 router.post("/", (req, res) => {
@@ -8,7 +8,7 @@ router.post("/", (req, res) => {
 
   const { email, password } = req.body;
   // ADD VALIDATION
-  User.findOne({ email: email }, (err, user) => {
+  Username.findOne({ email: email }, (err, user) => {
     if (err) {
       console.log("User.js post error: ", err);
     } else if (user) {
