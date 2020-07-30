@@ -28,11 +28,15 @@ export default class signUp extends Component {
         password: this.state.password,
       })
       .then((response) => {
-        console.log("response");
+        console.log(response);
         if (response.data) {
-          this.setState({
-            redirectTo: "/login",
-          });
+          if (response.data.errors) {
+            console.log(response.data.message);
+          } else {
+            this.setState({
+              redirectTo: "/login",
+            });
+          }
         } else {
           console.log("sign-up error");
         }
