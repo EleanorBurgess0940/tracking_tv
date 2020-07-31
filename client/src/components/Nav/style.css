@@ -17,3 +17,8 @@
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
 }
+
+#logo {
+  height: 50%;
+  width: 50%;
+}
