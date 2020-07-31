@@ -7,10 +7,10 @@ export default {
   tvSearch: function (search) {
     return axios.get(
       URL +
-        "/search/tv?api_key=" +
-        apiKey +
-        "&language=en-US&page=1&query=" +
-        search
+      "/search/tv?api_key=" +
+      apiKey +
+      "&language=en-US&page=1&query=" +
+      search
     );
   },
   // Gets all shows
