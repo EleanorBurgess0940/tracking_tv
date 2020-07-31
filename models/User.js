@@ -48,6 +48,6 @@ userSchema.pre("save", function (next) {
   }
 });
 
-const Username = mongoose.model("User", userSchema);
+var User = mongoose.model("User", userSchema);
 
-module.exports = Username;
+module.exports = User;

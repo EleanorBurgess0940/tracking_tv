@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const Username = require("../models/User.js");
-let passport = require("../config/passport/passport");
+const User = require("../../models/User.js");
+let passport = require("../../config/passport/passport");
 
-router.post("/", (req, res) => {
+router.route("/signup").post((req, res) => {
   console.log("user signup");
 
   const { email, password } = req.body;
   // ADD VALIDATION
-  Username.findOne({ email: email }, (err, user) => {
+  User.findOne({ email: email }, (err, user) => {
     if (err) {
       console.log("User.js post error: ", err);
     } else if (user) {
@@ -28,11 +28,10 @@ router.post("/", (req, res) => {
   });
 });
 
-router.post(
-  "/login",
+router.route("/login").post(
   function (req, res, next) {
     console.log("routes/user.js, login, req.body: ");
-    console.log(req.body);
+    console.log(req);
     next();
   },
   passport.authenticate("local"),
