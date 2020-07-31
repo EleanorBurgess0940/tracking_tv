@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./style.css";
-
+import API from "../../utils/API";
 
 export default class signUp extends Component {
   constructor() {
@@ -23,12 +22,13 @@ export default class signUp extends Component {
   }
 
   handleSubmit(event) {
+    console.log("handle submit");
     event.preventDefault();
-    axios
-      .post("/", {
-        email: this.state.email,
-        password: this.state.password,
-      })
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    API.signUp(userData)
       .then((response) => {
         console.log(response);
         if (response.data) {
@@ -89,16 +89,17 @@ export default class signUp extends Component {
               </div>
             </div>
 
-            <button
-              className="btn"
-              onClick={this.handleSubmit}
-              type="submit">Sign Up</button>
+            <button className="btn" onClick={this.handleSubmit} type="submit">
+              Sign Up
+            </button>
 
             <p className="forgot-password text-center">
-              Already registered? <a href="/login" id="sign-in">Sign in</a>
+              Already registered?
+              <a href="/login" id="sign-in">
+                Sign in
+              </a>
             </p>
           </div>
-
         </form>
       );
     }
