@@ -56,7 +56,7 @@ export default class signUp extends Component {
     } else {
       console.log("hmm");
       return (
-        <form>
+        <form className="form-height">
           <h3>Sign Up</h3>
           <div className="container">
             <div className="row">

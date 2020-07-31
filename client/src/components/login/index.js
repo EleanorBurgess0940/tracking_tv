@@ -58,7 +58,7 @@ export default class login extends Component {
       return <Redirect to={this.state.redirectTo} />;
     } else {
       return (
-        <form>
+        <form className="form-height">
           <h3>Log In</h3>
           <div className="container">
             <div className="row">
