@@ -14,3 +14,7 @@
 p {
     font-weight: bold;
 }
+
+.form-height {
+    height: 560px;
+}
