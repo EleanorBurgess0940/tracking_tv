@@ -26,9 +26,4 @@ export default {
   // saveShow: function (tvData) {
   //   return axios.post("/api/books", tvData);
   // },
-
-  signUp: function (userData) {
-    console.log(userData);
-    return axios.post("/api/signup", userData);
-  },
 };

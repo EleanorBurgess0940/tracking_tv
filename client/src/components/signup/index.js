@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./style.css";
-import API from "../../utils/API";
+import axios from "axios";
 
 export default class signUp extends Component {
   constructor() {
@@ -22,23 +22,18 @@ export default class signUp extends Component {
   }
 
   handleSubmit(event) {
-    console.log("handle submit");
     event.preventDefault();
-    const userData = {
-      email: this.state.email,
-      password: this.state.password,
-    };
-    API.signUp(userData)
+    axios
+      .post("/api/signup", {
+        email: this.state.email,
+        password: this.state.password,
+      })
       .then((response) => {
         console.log(response);
         if (response.data) {
-          if (response.data.errors) {
-            console.log(response.data.message);
-          } else {
-            this.setState({
-              redirectTo: "/login",
-            });
-          }
+          this.setState({
+            redirectTo: "/login",
+          });
         } else {
           console.log("sign-up error");
         }
@@ -96,7 +91,7 @@ export default class signUp extends Component {
             <p className="forgot-password text-center">
               Already registered?
               <a href="/login" id="sign-in">
-                Sign in
+                login
               </a>
             </p>
           </div>

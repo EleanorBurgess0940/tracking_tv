@@ -1,9 +1,8 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 const User = require("../../models/User.js");
 let passport = require("../../config/passport/passport");
 
-router.route("/signup").post((req, res) => {
+router.post("/signup", (req, res) => {
   console.log("user signup");
 
   const { email, password } = req.body;
@@ -31,7 +30,7 @@ router.route("/signup").post((req, res) => {
 router.route("/login").post(
   function (req, res, next) {
     console.log("routes/user.js, login, req.body: ");
-    console.log(req);
+
     next();
   },
   passport.authenticate("local"),
