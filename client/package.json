@@ -1,7 +1,7 @@
 {
   "name": "mern",
   "version": "0.1.0",
-  "description": "Tracking TV",
+  "description": "TV Track",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
