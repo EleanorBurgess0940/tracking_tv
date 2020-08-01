@@ -40,7 +40,7 @@ class member extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <MemberNav />
         <MemberSearch
           handleFormSubmit={this.handleFormSubmit}
