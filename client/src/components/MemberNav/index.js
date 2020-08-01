@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function MemberNav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark" id="navColor">
+    <nav className="navbar navbar-expand-lg" id="navColor">
       <h1>
         <Link className="nav-link text-white app-name bg-sgv" to={"/"}><img src="./assets/tvlogo.svg" alt="TV Logo" id="logo"></img>Track</Link></h1>
       <button className="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"

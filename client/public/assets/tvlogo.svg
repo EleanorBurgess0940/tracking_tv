@@ -1,8 +1,8 @@
-<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+<svg width="24.000000000000004" height="24.000000000000004" xmlns="http://www.w3.org/2000/svg">
 
  <g>
   <title>background</title>
-  <rect fill="#2e8b57" id="canvas_background" height="26" width="26" y="-1" x="-1"/>
+  <rect fill="#005e66" id="canvas_background" height="26" width="26" y="-1" x="-1"/>
  </g>
  <g>
   <title>Layer 1</title>
