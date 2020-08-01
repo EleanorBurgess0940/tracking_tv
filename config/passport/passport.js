@@ -7,11 +7,11 @@ passport.serializeUser(function (user, cb) {
 });
 
 passport.deserializeUser(function (user, cb) {
-  User.findOne({ user: user }, "email", (err, user) => {
+  User.findById(user, function (err, user) {
     console.log("*** Deserialize user, user:");
     console.log(user);
     console.log("--------------");
-    done(null, user);
+    cb(err, user);
   });
 });
 

@@ -27,7 +27,7 @@ export default class login extends Component {
     console.log("handleSubmit");
 
     axios
-      .post("/login", {
+      .post("/api/login", {
         email: this.state.email,
         password: this.state.password,
       })
@@ -91,7 +91,6 @@ export default class login extends Component {
               </div>
             </div>
 
-
             <div className="form-group">
               <div className="custom-control custom-checkbox">
                 <input
@@ -101,7 +100,7 @@ export default class login extends Component {
                 />
                 <label className="custom-control-label" htmlFor="customCheck1">
                   Remember me
-              </label>
+                </label>
               </div>
             </div>
 
@@ -109,13 +108,12 @@ export default class login extends Component {
               type="submit"
               className="btn"
               onClick={this.handleSubmit}
-              id="log-in">
+              id="log-in"
+            >
               Submit
-          </button>
+            </button>
           </div>
         </form>
-
-
       );
     }
   }

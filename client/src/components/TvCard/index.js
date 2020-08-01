@@ -26,7 +26,6 @@ function TvCard(props) {
           </div>
         </div>
       </div>
-
     );
   } else {
     return (
