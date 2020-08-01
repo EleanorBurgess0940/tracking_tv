@@ -2,6 +2,7 @@ import API from "../utils/API";
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import SearchResults from "../components/searchResults";
+import Nav from "../components/Nav";
 
 class homepage extends Component {
   state = {
@@ -38,6 +39,7 @@ class homepage extends Component {
   render() {
     return (
       <div className={homepage}>
+        <Nav />
         <Jumbotron
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
