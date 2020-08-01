@@ -1,0 +1,24 @@
+.navbar {
+  padding: 0;
+}
+
+.nav-link {
+  list-style-type: horizontal;
+  margin-right: 0;
+  float: left;
+  margin-bottom: 0;
+}
+
+#navColor {
+  background-color:seagreen;
+}
+
+.app-name {
+  font-family: 'Mulish', sans-serif;
+  font-weight: bold;
+}
+
+#logo {
+  height: 50%;
+  width: 50%;
+}

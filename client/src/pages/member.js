@@ -3,6 +3,7 @@ import API from "../utils/API";
 import React, { Component } from "react";
 import MemberSearch from "../components/MemberSearch";
 import UserCard from "../components/UserCard";
+import MemberNav from "../components/MemberNav";
 
 
 class member extends Component {
@@ -40,6 +41,7 @@ class member extends Component {
   render() {
     return (
       <div>
+        <MemberNav />
         <MemberSearch
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
