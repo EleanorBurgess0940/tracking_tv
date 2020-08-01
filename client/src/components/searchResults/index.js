@@ -1,6 +1,5 @@
 import React from "react";
 import TvCard from "../TvCard";
-import "./style.css";
 
 function SearchResults(props) {
   console.log(props.tvShows);
@@ -29,7 +28,6 @@ function SearchResults(props) {
   } else {
     return (
       <div>
-        <h2 > Start searching above!</h2>
       </div>
     );
   }

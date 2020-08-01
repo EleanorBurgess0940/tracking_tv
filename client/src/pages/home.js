@@ -1,6 +1,5 @@
 import API from "../utils/API";
 import React, { Component } from "react";
-
 import Jumbotron from "../components/Jumbotron";
 import SearchResults from "../components/searchResults";
 
