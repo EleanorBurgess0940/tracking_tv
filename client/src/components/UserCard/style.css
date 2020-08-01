@@ -1,8 +1,16 @@
-.card {
-    border-color:seagreen;
+#user-color {
+    border-color:#00181a;
     border-width: 3px;
-    background-color:  #493e3f;
     margin-bottom: 10px;
+    
+}
+
+.card-header {
+    background-color:#66005e;
+}
+
+#user-color {
+    background-color: #007680;
 }
 
 #show-title {
