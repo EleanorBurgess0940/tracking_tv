@@ -4,6 +4,9 @@ import "./style.css";
 import axios from "axios";
 import Nav from "../Nav";
 
+// React Notification
+import { NotificationManager } from "react-notifications";
+
 export default class signUp extends Component {
   constructor() {
     super();
@@ -31,12 +34,22 @@ export default class signUp extends Component {
       })
       .then((response) => {
         console.log(response);
-        if (response.data) {
+        if (response.data.errors) {
+          this.setState({
+            redirectTo: "/",
+          });
+          NotificationManager.success(
+            "There was an error with signing up!",
+            "Error"
+          );
+        } else {
           this.setState({
             redirectTo: "/login",
           });
-        } else {
-          console.log("sign-up error");
+          NotificationManager.success(
+            "You have successfully signed up!",
+            "Success!"
+          );
         }
       })
       .catch((error) => {
@@ -89,14 +102,14 @@ export default class signUp extends Component {
 
               <button className="btn" onClick={this.handleSubmit} type="submit">
                 Sign Up
-            </button>
+              </button>
 
               <p className="forgot-password text-center">
                 Already registered?
                 <br></br>
                 <a href="/login" id="sign-in">
                   Log in
-              </a>
+                </a>
               </p>
             </div>
           </form>

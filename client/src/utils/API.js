@@ -13,17 +13,27 @@ export default {
         search
     );
   },
-  // Gets all shows
+  // Gets popular shows
   getPopular: function () {
     return axios.get(URL + "/tv/popular?api_key=" + apiKey);
   },
 
-  // Gets shows with the given id
-  // getShow: function (id) {
-  //   return axios.get("/api/tv/" + id);
-  // },
+  //Gets specific show by id
+  getShow: function (id) {
+    return axios.get(
+      URL + "/tv/" + id + "?api_key=" + apiKey + "&language=en-US"
+    );
+  },
 
-  // saveShow: function (tvData) {
-  //   return axios.post("/api/books", tvData);
-  // },
+  getSavedShows: function () {
+    return axios.get("/api/shows");
+  },
+
+  deleteShow: function (id) {
+    return axios.delete("/api/shows/" + id);
+  },
+
+  saveShow: function (tvData) {
+    return axios.post("/api/shows", tvData);
+  },
 };

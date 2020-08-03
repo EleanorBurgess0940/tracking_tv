@@ -1,27 +1,70 @@
-import React from "react";
+import React, { Component } from "react";
 import "./style.css";
+import API from "../../utils/API";
+import { Col, Row, Container } from "../Grid";
+import Card from "../Card";
+import Show from "../Show";
+import { ListItem } from "../List";
 
-function UserCard() {
+class UserCard extends Component {
+  state = {
+    shows: [],
+  };
+
+  componentDidMount() {
+    this.getSavedShows();
+    console.log(this.state.shows);
+  }
+
+  getSavedShows = () => {
+    API.getSavedShows()
+      .then((res) =>
+        this.setState({
+          shows: res.data,
+        })
+      )
+      .catch((err) => console.log(err));
+  };
+
+  handleBShowDelete = (id) => {
+    API.deleteShow(id).then((res) => this.getSavedShows());
+  };
+
+  render() {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-sm-12">
-                    <div class="card" id="user-color">
-                        <h5 class="card-header">User</h5>
-                        <div class="card-body" id="user-color">
-                            <h5 class="card-title">Watch list:</h5>
-                            <p class="card-text">Lost</p>
-                            <p class="card-text">Friends</p>
-                            <p class="card-text">Friday Night Lights</p>
-                            <p class="card-text">CSI: New York</p>
-                            <p class="card-text">CSI: Chicago</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <Card title="Saved Shows">
+              {this.state.shows.length ? (
+                <ListItem>
+                  {this.state.shows.map((shows, i) => (
+                    <Show
+                      key={shows.TheMovieDBAPIshowID}
+                      name={shows.name}
+                      watched={shows.hasWatched}
+                      Button={() => (
+                        <button
+                          onClick={() =>
+                            this.handleShowDelete(Show.TheMovieDBAPIshowID)
+                          }
+                          className="btn btn-danger ml-2"
+                        >
+                          Delete
+                        </button>
+                      )}
+                    />
+                  ))}
+                </ListItem>
+              ) : (
+                <h2 className="text-center">No Saved Shows</h2>
+              )}
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     );
+  }
 }
 
 export default UserCard;

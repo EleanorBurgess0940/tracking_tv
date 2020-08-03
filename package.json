@@ -36,6 +36,8 @@
     "path": "^0.12.7",
     "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",
+    "react-dom": "^16.13.1",
+    "react-notifications": "^1.6.0",
     "react-popup": "^0.10.0",
     "react-router-dom": "^5.2.0",
     "reactjs-popup": "^1.5.0",

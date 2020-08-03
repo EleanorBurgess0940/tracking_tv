@@ -27,20 +27,9 @@ router.post("/signup", (req, res) => {
   });
 });
 
-router.route("/login").post(
-  function (req, res, next) {
-    console.log("routes/user.js, login, req.body: ");
-
-    next();
-  },
-  passport.authenticate("local"),
-  (req, res) => {
-    console.log("logged in", req.user);
-    var userInfo = {
-      email: req.user.email,
-    };
-    res.send(userInfo);
-  }
+router.post(
+  "/login",
+  passport.authenticate("local", { failureRedirect: "/login" })
 );
 
 router.get("/", (req, res, next) => {
@@ -59,6 +48,15 @@ router.post("/logout", (req, res) => {
     res.send({ msg: "logging out" });
   } else {
     res.send({ msg: "no user to log out" });
+  }
+});
+
+router.get("/member", (req, res, next) => {
+  console.log(req.session);
+  if (req.isAuthenticated()) {
+    res.send("<h1>You are authenticated</h1>");
+  } else {
+    res.send("<h1>You are not authenticated</h1>");
   }
 });
 
