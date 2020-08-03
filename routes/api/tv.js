@@ -6,6 +6,10 @@ let passport = require("../../config/passport/passport");
 router.route("/api").get(tvControllers.findAll).post(tvControllers.create);
 
 // Matches with "/api/tv/:id"
-router.route("/:id").get(tvControllers.findById);
+router
+  .route("/:id")
+  .get(tvControllers.findById)
+  .put(tvControllers.update)
+  .delete(tvControllers.remove);
 
 module.exports = router;

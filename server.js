@@ -21,19 +21,28 @@ app.use(
     secret: "taco cat",
     resave: true,
     saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 30,
+    },
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
 
-// // Add routes, both API and view
-app.use(routes);
+app.use((req, res, next) => {
+  console.log("session ", req.session);
+  console.log(req.user);
+  next();
+});
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {
   useNewUrlParser: true,
   useFindAndModify: false,
 });
+
+// // Add routes, both API and view
+app.use(routes);
 
 // Start the API server
 app.listen(PORT, function () {

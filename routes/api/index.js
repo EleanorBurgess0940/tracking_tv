@@ -4,6 +4,6 @@ const userRoutes = require("./user");
 
 // TV routes
 router.use("/", userRoutes);
-router.use("/tv", tvRoutes);
+router.use("/shows", tvRoutes);
 
 module.exports = router;

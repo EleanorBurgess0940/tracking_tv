@@ -1,15 +1,10 @@
 import React from "react";
 import "./style.css";
 import noImage from "../../images/noImageFound.png";
-import { useHistory } from "react-router-dom";
 
-function TvCard(props) {
-  const history = useHistory();
-  const handleRedirect = () => {
-    history.push("/tvShow", { id: props.id });
-  };
+function ShowDetails(props) {
+  console.log("show results", props);
 
-  const { push } = useHistory();
   if (props.poster) {
     return (
       <div className="col-sm-3">
@@ -26,19 +21,7 @@ function TvCard(props) {
             <h4 id="show-title">{props.name}</h4>
           </div>
           <div>
-            <button
-              type="button"
-              className="btn btn-outline-light"
-              onClick={() => handleRedirect()}
-            >
-              Average rating: {props.rating}
-            </button>
-            <button
-              onClick={() => this.handleShowSave(props.id)}
-              className="btn btn-primary ml-2"
-            >
-              Save Show
-            </button>
+            <h4>Average rating: {props.rating}</h4>
           </div>
         </div>
       </div>
@@ -59,19 +42,9 @@ function TvCard(props) {
             <h4 id="show-title">{props.name}</h4>
           </div>
           <div>
-            <button
-              type="button"
-              className="btn btn-outline-light"
-              onClick={() => handleRedirect()}
-            >
-              Avg. rating: {props.rating}
-            </button>
-            <button
-              onClick={() => this.handleShowSave(props.id)}
-              className="btn btn-primary ml-2"
-            >
-              Save Show
-            </button>
+            <div>
+              <h4>Average rating: {props.rating}</h4>
+            </div>
           </div>
         </div>
       </div>
@@ -79,4 +52,4 @@ function TvCard(props) {
   }
 }
 
-export default TvCard;
+export default ShowDetails;

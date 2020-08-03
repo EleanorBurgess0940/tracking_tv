@@ -13,23 +13,21 @@ function SearchResults(props) {
     return showsChunked.map((showChunk, i) => (
       <div className="row" key={i}>
         {showChunk.map((show, j) => (
-          <TvCard key={j} name={show.name} poster={show.poster_path} rating={show.vote_average} />
+          <TvCard
+            key={j}
+            name={show.name}
+            poster={show.poster_path}
+            rating={show.vote_average}
+            id={show.id}
+          />
         ))}
       </div>
     ));
-  }
+  };
   if (typeof props.tvShows != "undefined") {
-    return (
-
-      <div className="container">
-        {displayShows()}
-      </div>
-    );
+    return <div className="container">{displayShows()}</div>;
   } else {
-    return (
-      <div>
-      </div>
-    );
+    return <div></div>;
   }
 }
 

@@ -5,19 +5,12 @@ import MemberSearch from "../components/MemberSearch";
 import UserCard from "../components/UserCard";
 import MemberNav from "../components/MemberNav";
 
-
 class member extends Component {
   state = {
     search: "",
     error: "",
     results: [],
   };
-
-  // componentDidMount() {
-  //   API.getPopular()
-  //     .then((res) => this.setState({ tvShows: res.data.results }))
-  //     .catch((err) => console.log(err));
-  // }
 
   handleInputChange = (event) => {
     this.setState({ search: event.target.value });
@@ -48,7 +41,7 @@ class member extends Component {
         />
         <UserCard />
         <SearchResults tvShows={this.state.tvShows} />
-      </div >
+      </div>
     );
   }
 }
