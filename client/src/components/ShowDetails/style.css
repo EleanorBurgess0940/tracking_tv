@@ -3,30 +3,32 @@
     margin-right: 25px;
     background-color: #1e1813;
 }
-
 .btn {
       background-color:  #005e66;
       font-weight: bold;
   }
 
-.wrapper {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-family: 'Mulish', sans-serif;
+.img-fluid {
+    width: 100%;
+    background-size: cover;
+    opacity: 0.1;
+  }
 
+.badge-pill {
+      background-color: #002f33;
+      font-weight:bold;
+  }
 
-}
-
-#card-margin {
-    margin-right: 15px;
-    margin-left: 35px;
-}
-
-#show-name {
-    font-family: 'Mulish', sans-serif;
+  .card-header {
+    background-color:#66005e;
     font-weight: bold;
 }
 
-#image-detail {
-    margin-left: 15px;
+#show-details {
+    font-family: 'Mulish', sans-serif;
+}
+
+h3 {
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
 }
