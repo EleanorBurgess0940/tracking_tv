@@ -6,14 +6,12 @@ import noImage from "../../images/noImageFound.png";
 
 function TvShow(props) {
   const location = useLocation();
-  console.log("location: ", location.state);
 
   API.getShow(location.state.id)
     .then((res) => {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
       }
-      console.log("no error ", res.data);
       if (res.data) {
         return (
           <div className="col-sm-3">

@@ -2,7 +2,6 @@ import React from "react";
 import TvCard from "../TvCard";
 
 function ShowResults(props) {
-  console.log("here", props);
   const displayShows = () => {
     const show = props.tvShow;
     return (

@@ -3,8 +3,6 @@ import "./style.css";
 import noImage from "../../images/noImageFound.png";
 
 function ShowDetails(props) {
-  console.log("show results", props);
-
   if (props.poster) {
     return (
       <div className="col-sm-3">

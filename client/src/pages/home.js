@@ -29,16 +29,14 @@ class homepage extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        console.log(res.data);
         this.setState({ tvShows: res.data.results });
-        console.log(this.state.tvShows);
       })
       .catch((err) => this.setState({ error: err.message }));
   };
 
   render() {
     return (
-      <div className={homepage}>
+      <div className="homepage">
         <Nav />
         <Jumbotron
           handleFormSubmit={this.handleFormSubmit}

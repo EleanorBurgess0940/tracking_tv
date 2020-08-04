@@ -8,8 +8,6 @@ function isAuthenticated(req, res, next) {
 }
 
 router.post("/signup", (req, res) => {
-  console.log("user signup");
-
   const { email, password } = req.body;
   // ADD VALIDATION
   User.findOne({ email: email }, (err, user) => {
@@ -73,11 +71,6 @@ router.post("/logout", (req, res) => {
   } else {
     res.send({ msg: "no user to log out" });
   }
-});
-
-router.get("/member", isAuthenticated, function (req, res) {
-  console.log(req.session);
-  isAuthenticated;
 });
 
 module.exports = router;

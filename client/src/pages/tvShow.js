@@ -8,16 +8,11 @@ class tvShows extends Component {
     show: "",
   };
 
-  useLocation() {
-    console.log("help");
-  }
+  useLocation() {}
 
-  componentDidMount() {
-    console.log("component did mount");
-  }
+  componentDidMount() {}
 
   render() {
-    console.log("hello ");
     return (
       <div className={tvShows}>
         <TvShow />
