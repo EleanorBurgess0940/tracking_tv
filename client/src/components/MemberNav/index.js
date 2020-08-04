@@ -3,6 +3,8 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import { NotificationManager } from "react-notifications";
+
 class MemberNav extends Component {
   constructor() {
     super();
@@ -20,12 +22,20 @@ class MemberNav extends Component {
             username: null,
             redirectTo: "/",
           });
+          NotificationManager.success(
+            "You have successfully logged out!",
+            "Success!"
+          );
           this.setState({});
         }
       })
       .catch((error) => {
         console.log(error);
         console.log("Logout error");
+        NotificationManager.error(
+          "There was an error with logging out!",
+          "Error"
+        );
       });
   }
 
@@ -33,7 +43,7 @@ class MemberNav extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark" id="navColor">
         <h1>
-          <Link className="nav-link text-white app-name bg-sgv" to={"/"}>
+          <Link className="nav-link text-white app-name bg-sgv" to={"/member"}>
             <img src="./assets/tvlogo.svg" alt="TV Logo" id="logo"></img>Track
           </Link>
         </h1>
@@ -54,7 +64,8 @@ class MemberNav extends Component {
         >
           <div>
             <button
-              className="btn btn-outline-light" id="signout"
+              className="btn btn-outline-light"
+              id="signout"
               onClick={this.signout}
             >
               Sign Out

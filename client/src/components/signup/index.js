@@ -37,8 +37,8 @@ export default class signUp extends Component {
           this.setState({
             redirectTo: "/",
           });
-          NotificationManager.success(
-            "There was an error with signing up!",
+          NotificationManager.error(
+            "There was an error when signing up!",
             "Error"
           );
         } else {
