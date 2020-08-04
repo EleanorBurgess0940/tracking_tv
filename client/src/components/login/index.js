@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import "./style.css";
 import Nav from "../Nav";
 
-export default class login extends Component {
+class login extends Component {
   constructor() {
     super();
     this.state = {
@@ -37,14 +37,14 @@ export default class login extends Component {
         console.log(response);
         if (response.status === 200) {
           // update App.js state
-          this.setState({
+          this.props.updateUser({
             loggedIn: true,
             email: response.data.email,
           });
-          // update the state to redirect to home
           this.setState({
             redirectTo: "/member",
           });
+          // update the state to redirect to home
         }
       })
       .catch((error) => {
@@ -55,8 +55,7 @@ export default class login extends Component {
 
   render() {
     if (this.state.redirectTo) {
-      console.log(this.state.redirectTo);
-      return <Redirect to={this.state.redirectTo} />;
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
         <div>
@@ -125,3 +124,5 @@ export default class login extends Component {
     }
   }
 }
+
+export default login;

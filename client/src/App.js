@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -13,69 +13,82 @@ import Login from "./components/login";
 import Home from "./pages/home.js";
 import Member from "./pages/member.js";
 import TvShow from "./pages/tvShow.js";
+import axios from "axios";
 
 import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        {/* <Nav /> */}
-        <Switch>
-          <Route exact path={["/", "/homePage"]}>
-            <Home />
-          </Route>
-          <Route exact path={["/signup"]}>
-            <Signup />
-          </Route>
-          <Route exact path={["/login"]}>
-            <Login />
-          </Route>
-          <Route exact path={["/member"]}>
-            <Member />
-          </Route>
-          <Route exact path={["/tvShow"]}>
-            <TvShow />
-          </Route>
-        </Switch>
-        <NotificationContainer />
-        <Footer />
-      </div>
-    </Router>
-  );
-}
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loggedIn: false,
+      username: null,
+    };
 
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    fakeAuth.isAuthenticated = true;
-    setTimeout(cb, 100); // fake async
-  },
-  signout(cb) {
-    fakeAuth.isAuthenticated = false;
-    setTimeout(cb, 100);
-  },
-};
+    this.getUser = this.getUser.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+  }
 
-function PrivateRoute({ children, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        fakeAuth.isAuthenticated ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location },
-            }}
-          />
-        )
+  componentDidMount() {
+    console.log("Comp did mount");
+    this.getUser();
+  }
+
+  updateUser(userObject) {
+    this.setState(userObject);
+  }
+
+  getUser() {
+    axios.get("/api/user").then((response) => {
+      console.log("Get user response: ");
+      console.log(response.data);
+      if (response.data.user) {
+        console.log("Get User: There is a user saved in the server session: ");
+
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username,
+        });
+      } else {
+        console.log("Get user: no user");
+        this.setState({
+          loggedIn: false,
+          username: null,
+        });
       }
-    />
-  );
+    });
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          {/* <Nav /> */}
+          <Switch>
+            <Route exact path={["/", "/homePage"]}>
+              <Home />
+            </Route>
+            <Route exact path={["/signup"]}>
+              <Signup />
+            </Route>
+            <Route exact path={["/login"]}>
+              <Login updateUser={this.updateUser} />
+            </Route>
+            <Route exact path={["/member"]}>
+              <Member />
+            </Route>
+            <Route exact path={["/tvShow"]}>
+              <TvShow />
+            </Route>
+          </Switch>
+          <NotificationContainer />
+          <Footer />
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
