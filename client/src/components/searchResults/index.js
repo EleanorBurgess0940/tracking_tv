@@ -2,7 +2,6 @@ import React from "react";
 import TvCard from "../TvCard";
 
 function SearchResults(props) {
-  console.log(props.tvShows);
   const displayShows = () => {
     const shows = props.tvShows;
     const chunkSize = 4;

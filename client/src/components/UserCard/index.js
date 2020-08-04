@@ -3,8 +3,6 @@ import "./style.css";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../Grid";
 import Card from "../Card";
-import Show from "../Show";
-import { ListItem } from "../List";
 
 class UserCard extends Component {
   state = {
@@ -13,7 +11,6 @@ class UserCard extends Component {
 
   componentDidMount() {
     this.getSavedShows();
-    console.log(this.state.shows);
   }
 
   getSavedShows = () => {

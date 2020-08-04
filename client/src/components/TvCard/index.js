@@ -9,7 +9,6 @@ function TvCard(props) {
     history.push("/tvShow", { id: props.id });
   };
 
-  const { push } = useHistory();
   if (props.poster) {
     return (
       <div className="col-sm-3">

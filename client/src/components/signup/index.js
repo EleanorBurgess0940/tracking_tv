@@ -33,7 +33,6 @@ export default class signUp extends Component {
         password: this.state.password,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.errors) {
           this.setState({
             redirectTo: "/",
@@ -60,10 +59,8 @@ export default class signUp extends Component {
 
   render() {
     if (this.state.redirectTo) {
-      console.log(this.state.redirectTo);
       return <Redirect to={this.state.redirectTo} />;
     } else {
-      console.log("hmm");
       return (
         <div>
           <Nav />

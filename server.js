@@ -29,11 +29,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  console.log("session ", req.session);
-  console.log(req.user);
-  next();
-});
+//app.use((req, res, next) => {
+//  next();
+//});
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {

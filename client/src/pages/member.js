@@ -8,28 +8,30 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 
 class member extends Component {
-  state = {
-    search: "",
-    error: "",
-    results: [],
-    loggedIn: null,
-    username: null,
-    redirectTo: null,
-  };
+  constructor() {
+    super();
+    this.state = {
+      search: "",
+      error: "",
+      results: [],
+      loggedIn: null,
+      username: null,
+      redirectTo: null,
+    };
+
+    this.getUser = this.getUser.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+  }
 
   getUser() {
     axios.get("/api/user").then((response) => {
-      console.log("Get user response: ");
-      console.log(response.data);
       if (response.data.user) {
-        console.log("Get User: There is a user saved in the server session: ");
-
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
         });
       } else {
-        console.log("Get user: no user");
         this.setState({
           loggedIn: false,
           username: null,
@@ -40,7 +42,6 @@ class member extends Component {
   }
 
   componentDidMount() {
-    console.log("Comp did mount member");
     this.getUser();
 
     API.getPopular()
@@ -60,12 +61,14 @@ class member extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        console.log(res.data);
         this.setState({ tvShows: res.data.results });
-        console.log(this.state.tvShows);
       })
       .catch((err) => this.setState({ error: err.message }));
   };
+
+  updateUser(userObject) {
+    this.setState(userObject);
+  }
 
   render() {
     if (this.state.redirectTo) {
@@ -73,7 +76,7 @@ class member extends Component {
     } else {
       return (
         <div className="wrapper">
-          <MemberNav />
+          <MemberNav updateUser={this.updateUser} />
           <MemberSearch
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
