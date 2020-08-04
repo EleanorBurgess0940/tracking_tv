@@ -4,6 +4,8 @@ import { Redirect } from "react-router-dom";
 import "./style.css";
 import Nav from "../Nav";
 
+import { NotificationManager } from "react-notifications";
+
 class login extends Component {
   constructor() {
     super();
@@ -38,6 +40,10 @@ class login extends Component {
             loggedIn: true,
             email: response.data.email,
           });
+          NotificationManager.success(
+            "You have successfully logged in!",
+            "Success!"
+          );
           this.setState({
             redirectTo: "/member",
           });
@@ -47,6 +53,10 @@ class login extends Component {
       .catch((error) => {
         console.log("login error: ");
         console.log(error);
+        NotificationManager.error(
+          "There was an error with logging in!",
+          "Error"
+        );
       });
   }
 
