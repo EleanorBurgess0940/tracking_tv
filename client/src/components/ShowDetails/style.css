@@ -1,15 +1,10 @@
-.card {
-    border-color:#005e66;
-    border-width: 3px;
-    background-color:  #1a0f00;
-    margin-bottom: 10px;
+.jumbotron {
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: #1e1813;
 }
 
-#show-title {
-    font-family: 'Mulish', sans-serif;
-    font-weight: bold;
-}
-
-.btn-outline-light {
-    margin-bottom: 15px;
-}
+.btn {
+      background-color: seagreen;
+      font-weight: bold;
+  }

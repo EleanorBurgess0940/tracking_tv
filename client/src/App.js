@@ -7,7 +7,7 @@ import Signup from "./components/signup";
 import Login from "./components/login";
 import Home from "./pages/home.js";
 import Member from "./pages/member.js";
-import TvShow from "./pages/tvShow.js";
+import TvShow from "./pages/tvshow.js";
 import axios from "axios";
 
 import "react-notifications/lib/notifications.css";
@@ -68,7 +68,7 @@ class App extends Component {
             <Route exact path={["/member"]}>
               <Member />
             </Route>
-            <Route exact path={["/tvShow"]}>
+            <Route exact path={["/tvshow"]}>
               <TvShow />
             </Route>
           </Switch>

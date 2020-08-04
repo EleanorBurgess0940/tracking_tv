@@ -45,7 +45,6 @@ router.post("/login", (req, res, next) => {
         return next(err);
       }
 
-      console.log("logged in", req.user);
       var userInfo = {
         username: req.user.username,
       };
