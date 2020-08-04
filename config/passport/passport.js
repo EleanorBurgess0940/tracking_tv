@@ -24,18 +24,14 @@ passport.use(
     function (email, password, done) {
       User.findOne({ email: email }, (err, user) => {
         if (err) {
-          console.log("password doots2");
           return done(err);
         }
         if (!user) {
-          console.log("password doots3");
           return done(null, false, { message: "Incorrect email" });
         }
         if (!user.checkPassword(password)) {
-          console.log("password doots4");
           return done(null, false, { message: "Incorrect password" });
         }
-        console.log("here", user);
         return done(null, user);
       });
     }

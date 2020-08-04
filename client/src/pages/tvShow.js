@@ -1,23 +1,59 @@
+import API from "../utils/API";
 import React, { Component } from "react";
-import TvShow from "../components/TvShow";
+import Jumbotron from "../components/Jumbotron";
+import SearchResults from "../components/searchResults";
+import Nav from "../components/Nav";
+import ShowDetails from "../components/showDetails";
+import homepage from "./home";
 
-class tvShows extends Component {
+class tvshow extends Component {
   state = {
+    tvshow: "",
+    tvposter: "",
+    episodeRunTime: "",
+    homepage: "",
+    genres: "",
+    nextEpisodeToAir: "",
+    numberOfEpisodes: "",
+    numberOfSeasons: "",
+    overview: "",
+    posterPath: "",
+    status: "",
+    voteAverage: "",
     error: "",
-    id: "",
-    show: "",
+    results: [],
   };
 
-  useLocation() {}
-
-  componentDidMount() {}
+  componentDidMount() {
+    API.getShow(localStorage.getItem("showid")).then((res) => {
+      if (res.data.status === "error") {
+        throw new Error(res.data.message);
+      }
+      console.log(res);
+      this.setState({
+        tvshow: res.data.name,
+        tvposter: res.data.backdrop_path,
+        episodeRunTime: res.data.episodeRunTime,
+        homepage: res.data.homepage,
+        genres: res.data.genres,
+        nextEpisodeToAir: res.data.next_episode_to_air,
+        numberOfEpisodes: res.data.number_of_episodes,
+        numberOfSeasons: res.data.number_of_seasons,
+        overview: res.data.overview,
+        posterPath: res.data.poster_path,
+        status: res.data.status,
+        voteAverage: res.data.vote_average,
+      });
+    });
+  }
 
   render() {
     return (
-      <div className={tvShows}>
-        <TvShow />
+      <div className="tvshow">
+        <Nav />
+        <ShowDetails state={this.state} />
       </div>
     );
   }
 }
-export default tvShows;
+export default tvshow;

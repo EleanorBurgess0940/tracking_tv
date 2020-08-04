@@ -10,7 +10,6 @@ class MemberNav extends Component {
   }
 
   signout(event) {
-    console.log("signout");
     event.preventDefault();
     axios
       .post("/api/logout")

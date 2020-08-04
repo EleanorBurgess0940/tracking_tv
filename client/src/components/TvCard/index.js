@@ -6,7 +6,8 @@ import { useHistory } from "react-router-dom";
 function TvCard(props) {
   const history = useHistory();
   const handleRedirect = () => {
-    history.push("/tvShow", { id: props.id });
+    localStorage.setItem("showid", props.id);
+    history.push("/tvshow");
   };
 
   if (props.poster) {
