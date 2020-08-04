@@ -31,13 +31,13 @@ function TvCard(props) {
               className="btn btn-outline-light"
               onClick={() => handleRedirect()}
             >
-              Average rating: {props.rating}
+              Info
             </button>
             <button
               onClick={() => this.handleShowSave(props.id)}
-              className="btn btn-primary ml-2"
+              className="btn btn-outline-light"
             >
-              Save Show
+              Save
             </button>
           </div>
         </div>
@@ -68,7 +68,7 @@ function TvCard(props) {
             </button>
             <button
               onClick={() => this.handleShowSave(props.id)}
-              className="btn btn-primary ml-2"
+              className="btn btn-outline-light"
             >
               Save Show
             </button>

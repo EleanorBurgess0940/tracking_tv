@@ -1,9 +1,9 @@
 import API from "../utils/API";
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import SearchResults from "../components/searchResults";
+import searchResults from "../components/searchResults";
 import Nav from "../components/Nav";
-import ShowDetails from "../components/showDetails";
+import ShowDetails from "../components/ShowDetails";
 import homepage from "./home";
 
 class tvshow extends Component {
