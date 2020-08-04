@@ -16,7 +16,6 @@ function SearchResults(props) {
             key={j}
             name={show.name}
             poster={show.poster_path}
-            rating={show.vote_average}
             id={show.id}
           />
         ))}

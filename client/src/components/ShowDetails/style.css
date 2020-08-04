@@ -8,3 +8,25 @@
       background-color:  #005e66;
       font-weight: bold;
   }
+
+.wrapper {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: 'Mulish', sans-serif;
+
+
+}
+
+#card-margin {
+    margin-right: 15px;
+    margin-left: 35px;
+}
+
+#show-name {
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+}
+
+#image-detail {
+    margin-left: 15px;
+}

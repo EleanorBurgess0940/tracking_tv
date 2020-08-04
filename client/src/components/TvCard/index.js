@@ -64,13 +64,13 @@ function TvCard(props) {
               className="btn btn-outline-light"
               onClick={() => handleRedirect()}
             >
-              Avg. rating: {props.rating}
+              Info
             </button>
             <button
               onClick={() => this.handleShowSave(props.id)}
               className="btn btn-outline-light"
             >
-              Save Show
+              Save
             </button>
           </div>
         </div>
