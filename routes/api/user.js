@@ -2,6 +2,11 @@ const router = require("express").Router();
 const User = require("../../models/User.js");
 let passport = require("../../config/passport/passport");
 
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.json("not authenticated");
+}
+
 router.post("/signup", (req, res) => {
   console.log("user signup");
 
@@ -27,12 +32,31 @@ router.post("/signup", (req, res) => {
   });
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/login" })
-);
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
 
-router.get("/", (req, res, next) => {
+    if (!user) {
+      return res.redirect("/login?info=" + info);
+    }
+
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+
+      console.log("logged in", req.user);
+      var userInfo = {
+        username: req.user.username,
+      };
+      res.send(userInfo);
+    });
+  })(req, res, next);
+});
+
+router.get("/user", (req, res, next) => {
   console.log("===== user!!======");
   console.log(req.user);
   if (req.user) {
@@ -51,13 +75,9 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.get("/member", (req, res, next) => {
+router.get("/member", isAuthenticated, function (req, res) {
   console.log(req.session);
-  if (req.isAuthenticated()) {
-    res.send("<h1>You are authenticated</h1>");
-  } else {
-    res.send("<h1>You are not authenticated</h1>");
-  }
+  isAuthenticated;
 });
 
 module.exports = router;

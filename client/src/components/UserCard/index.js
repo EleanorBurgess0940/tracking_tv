@@ -36,28 +36,7 @@ class UserCard extends Component {
         <Row>
           <Col size="md-12">
             <Card title="Saved Shows">
-              {this.state.shows.length ? (
-                <ListItem>
-                  {this.state.shows.map((shows, i) => (
-                    <Show
-                      key={shows.TheMovieDBAPIshowID}
-                      name={shows.name}
-                      watched={shows.hasWatched}
-                      Button={() => (
-                        <button
-                          onClick={() =>
-                            this.handleShowDelete(Show.TheMovieDBAPIshowID)
-                          }
-                          className="btn btn-danger ml-2"
-                        >
-                          Delete
-                        </button>
-                      )}
-                    />
-                  ))}
-                </ListItem>
-              ) : (
-                <h2 className="text-center">No Saved Shows</h2>
+              <h2 className="text-center">No Saved Shows</h2>
               )}
             </Card>
           </Col>
