@@ -54,7 +54,7 @@ class MemberNav extends Component {
         >
           <div>
             <button
-              className="nav-link text-white app-name"
+              className="btn btn-outline-light" id="signout"
               onClick={this.signout}
             >
               Sign Out

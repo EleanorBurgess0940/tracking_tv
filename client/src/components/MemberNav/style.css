@@ -22,3 +22,8 @@
   height: 50%;
   width: 50%;
 }
+
+#signout {
+  background-color: #1e1813;
+  margin-right: 15px;
+}
