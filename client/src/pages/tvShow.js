@@ -6,7 +6,7 @@ import Nav from "../components/Nav";
 import ShowDetails from "../components/ShowDetails";
 import homepage from "./home";
 
-class tvshow extends Component {
+class tvShow extends Component {
   state = {
     tvshow: "",
     tvposter: "",
@@ -56,4 +56,4 @@ class tvshow extends Component {
     );
   }
 }
-export default tvshow;
+export default tvShow;
