@@ -30,7 +30,7 @@ class tvShow extends Component {
       }
       console.log(res);
       this.setState({
-        tvShow: res.data.name,
+        tvshow: res.data.name,
         tvposter: res.data.backdrop_path,
         episodeRunTime: res.data.episodeRunTime,
         homepage: res.data.homepage,
@@ -50,6 +50,7 @@ class tvShow extends Component {
     console.log(res);
     API.saveShow({
       TheMovieDBAPIshowID: localStorage.getItem("showid"),
+      name: tvShow,
       hasWatched: false,
     }).then(console.log("hello"));
   };
@@ -59,7 +60,7 @@ class tvShow extends Component {
       <div className="tvshow">
         <Nav />
         <ShowDetails state={this.state} />
-        <button className="btn" onClick={this.handleShowSave} type="submit">
+        <button className="btn btn-outline-light" onClick={this.handleShowSave} type="submit">
           Watch Later?
         </button>
       </div>
