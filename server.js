@@ -36,7 +36,7 @@ app.use(passport.session());
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI ||
-    "mongodb://<dbuser>:<dbpassword>@ds163330.mlab.com:63330/heroku_wd9lqp1n",
+    "mongodb://tvShows:tvtrack1@ds163330.mlab.com:63330/heroku_wd9lqp1n",
   {
     useNewUrlParser: true,
     useFindAndModify: false,
