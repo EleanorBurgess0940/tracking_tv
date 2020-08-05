@@ -8,7 +8,7 @@ This application, built with React.JS, allows users to search for TV shows, disc
 4. [License](#license)
 5. [Information](#information)
 
-![](public/assets/Home.gif)
+![](client/public/assets/Home.gif)
 
 ## Description
 The volume of TV choices and streaming options can be overwhelming. Where does someone start to narrow down her choices?
