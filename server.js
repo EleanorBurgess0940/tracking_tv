@@ -34,10 +34,14 @@ app.use(passport.session());
 //});
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://<dbuser>:<dbpassword>@ds163330.mlab.com:63330/heroku_wd9lqp1n",
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+  }
+);
 
 // // Add routes, both API and view
 app.use(routes);
