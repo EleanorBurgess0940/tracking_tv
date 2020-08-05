@@ -9,7 +9,6 @@ function TvCard(props) {
     localStorage.setItem("showid", props.id);
     history.push("/tvshow");
   };
-
   if (props.poster) {
     return (
       <div className="col-sm-3">
@@ -32,12 +31,6 @@ function TvCard(props) {
               onClick={() => handleRedirect()}
             >
               Info
-            </button>
-            <button
-              onClick={() => this.handleShowSave(props.id)}
-              className="btn btn-outline-light"
-            >
-              Save
             </button>
           </div>
         </div>
@@ -65,12 +58,6 @@ function TvCard(props) {
               onClick={() => handleRedirect()}
             >
               Info
-            </button>
-            <button
-              onClick={() => this.handleShowSave(props.id)}
-              className="btn btn-outline-light"
-            >
-              Save
             </button>
           </div>
         </div>

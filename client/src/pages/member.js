@@ -14,6 +14,7 @@ class member extends Component {
       search: "",
       error: "",
       results: [],
+      shows: [],
       loggedIn: null,
       username: null,
       redirectTo: null,

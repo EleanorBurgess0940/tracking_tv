@@ -3,15 +3,13 @@ import "./style.css";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../Grid";
 import Card from "../Card";
+import { List } from "../List";
+import Show from "../Show";
 
 class UserCard extends Component {
   state = {
     shows: [],
   };
-
-  componentDidMount() {
-    this.getSavedShows();
-  }
 
   getSavedShows = () => {
     API.getSavedShows()
@@ -23,7 +21,11 @@ class UserCard extends Component {
       .catch((err) => console.log(err));
   };
 
-  handleBShowDelete = (id) => {
+  componentDidMount() {
+    this.getSavedShows();
+  }
+
+  handleShowDelete = (id) => {
     API.deleteShow(id).then((res) => this.getSavedShows());
   };
 
@@ -33,7 +35,27 @@ class UserCard extends Component {
         <Row>
           <Col size="md-12">
             <Card title="Saved Shows">
-              <h2 className="text-center">No Saved Shows</h2>
+              {this.state.shows.length ? (
+                <List>
+                  {this.state.shows.map((shows) => (
+                    <Show
+                      key={shows._id}
+                      name={shows.name}
+                      idNumber={shows.TheMovieDBAPIshowID}
+                      hasWatched={shows.hasWatched}
+                      Button={() => (
+                        <button
+                          onClick={() => this.handleShowDelete(shows._id)}
+                          className="btn btn-danger ml-2"
+                        >
+                          Delete
+                        </button>
+                      )}
+                    />
+                  ))}
+                </List>
+              ) : (
+                <h2 className="text-center">No Saved Books</h2>
               )}
             </Card>
           </Col>

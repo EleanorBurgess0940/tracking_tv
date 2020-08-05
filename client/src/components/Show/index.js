@@ -4,11 +4,11 @@
 
 import React from "react";
 import { Row, Col } from "../Grid";
-import { List } from "../List";
+import { ListItem } from "../List";
 
 function Show({ TheMovieDBAPIshowID, name, hasWatched }) {
   return (
-    <List>
+    <ListItem>
       <Row className="flex-wrap-reverse">
         <Col size="md-8">
           <h3 className="font-italic">{name}</h3>
@@ -20,7 +20,7 @@ function Show({ TheMovieDBAPIshowID, name, hasWatched }) {
           <p> Id: {TheMovieDBAPIshowID} </p>
         </Col>
       </Row>
-    </List>
+    </ListItem>
   );
 }
 
