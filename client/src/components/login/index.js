@@ -107,12 +107,6 @@ class login extends Component {
                     className="custom-control-input"
                     id="customCheck1"
                   />
-                  <label
-                    className="custom-control-label"
-                    htmlFor="customCheck1"
-                  >
-                    Remember me
-                  </label>
                 </div>
               </div>
 
