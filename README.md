@@ -1,5 +1,7 @@
 # TV Track
-This application, built with React.JS, allows users to search for TV shows, discover key information and save shows to a watchlist. 
+This application allows users to search for TV shows, discover key information and save shows to a watchlist. 
+
+The app was built with the MERN stack (MongoDB, Express, React and Node.JS). It relies on The Movie DB for external API calls to provide show data. 
 
 ## Table of Contents
 1. [Description](#description)
@@ -15,13 +17,15 @@ The volume of TV choices and streaming options can be overwhelming. Where does s
 
 TV Track allows users to cut through the clutter found on most streaming services. The home page provides a list of popular shows and a simple search interface. 
 
-Each TV show also includes an "info" button that takes users to a page dedicated to the selected show. Users can then save any show from its dedicated page, provided they have created an account and logged in. 
+Each TV show card includes an "info" button that takes users to a page dedicated to the selected show. Users can then save a show from its dedicated page to their watchlist, provided they have created an account and are logged in. 
 
-The user will be told what port the app is running on and can go to `localhost:` in the web browser.
+## Installation
+
+Run `npm install` to include all necessary dependencies. 
 
 `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
@@ -29,13 +33,9 @@ You will also see any lint errors in the console.
 
 The application is also located on Heroku:
 
-## Installation
-
-Run `npm install` to include all necessary dependencies. 
+http://tv-track-2020.herokuapp.com/
 
 ## Contributing
-
-Contributions and improvements to the project are welcome at any time. 
 
 You can reach the developers at the links below.
 
@@ -43,6 +43,8 @@ Elly Burgess: (https://https://react-portfolio-ecb.herokuapp.com/
 )
 
 Stephen Miller: (https://stephen-miller-react-portfolio.herokuapp.com/)
+
+Contributions and improvements to the project are welcome. 
 
 ### License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
