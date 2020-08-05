@@ -1,4 +1,4 @@
 module.exports = {
-  Show: require("./show"),
+  Show: require("./Show"),
   User: require("./User"),
 };
