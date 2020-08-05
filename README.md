@@ -1,7 +1,7 @@
 # TV Track
 This application allows users to search for TV shows, discover key information and save shows to a watchlist. 
 
-The app was built with the MERN stack (MongoDB, Express, React and Node.JS). It relies on The Movie DB for external API calls to provide show data. 
+The app was built with the MERN stack (MongoDB, Express, React and Node.JS). It relies on The Movie Datbase (https://www.themoviedb.org/) for external API calls to provide show data. 
 
 ## Table of Contents
 1. [Description](#description)
