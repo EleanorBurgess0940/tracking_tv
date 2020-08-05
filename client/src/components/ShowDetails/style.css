@@ -8,27 +8,19 @@
       font-weight: bold;
   }
 
-.img-fluid {
-    width: 100%;
-    background-size: cover;
-    opacity: 0.1;
-  }
-
 .badge-pill {
       background-color: #002f33;
       font-weight:bold;
   }
 
-  .card-header {
-    background-color:#66005e;
-    font-weight: bold;
-}
-
 #show-details {
     font-family: 'Mulish', sans-serif;
 }
 
-h3 {
+.card {
     font-family: 'Mulish', sans-serif;
-    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold
 }
