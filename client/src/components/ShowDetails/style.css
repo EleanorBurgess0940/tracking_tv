@@ -5,6 +5,7 @@
 }
 .btn {
       background-color:  #005e66;
+      font-family: 'Mulish', sans-serif;
       font-weight: bold;
   }
 
@@ -25,6 +26,20 @@ h2 {
     font-weight: bold;
 }
 
+h3 {
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: bold;
+}
 .wrapper {
     margin: 15px;
+    font-family: 'Mulish', sans-serif;
+
 }
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+  }
