@@ -50,7 +50,6 @@ class tvShow extends Component {
     console.log(res);
     API.saveShow({
       TheMovieDBAPIshowID: localStorage.getItem("showid"),
-      name: tvShow,
       hasWatched: false,
     }).then(console.log("hello"));
   };
