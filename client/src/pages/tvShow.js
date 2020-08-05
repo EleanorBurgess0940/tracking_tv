@@ -1,13 +1,11 @@
 import API from "../utils/API";
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import searchResults from "../components/searchResults";
 import Nav from "../components/Nav";
 import ShowDetails from "../components/ShowDetails";
-import homepage from "./home";
 
 class tvShow extends Component {
   state = {
+    shows: [],
     tvshow: "",
     tvposter: "",
     episodeRunTime: "",
@@ -21,6 +19,7 @@ class tvShow extends Component {
     status: "",
     voteAverage: "",
     error: "",
+    name: "",
     results: [],
   };
 
@@ -31,7 +30,7 @@ class tvShow extends Component {
       }
       console.log(res);
       this.setState({
-        tvshow: res.data.name,
+        tvShow: res.data.name,
         tvposter: res.data.backdrop_path,
         episodeRunTime: res.data.episodeRunTime,
         homepage: res.data.homepage,
@@ -47,11 +46,23 @@ class tvShow extends Component {
     });
   }
 
+  handleShowSave = (res) => {
+    console.log(res);
+    API.saveShow({
+      TheMovieDBAPIshowID: localStorage.getItem("showid"),
+      name: tvShow,
+      hasWatched: false,
+    }).then(console.log("hello"));
+  };
+
   render() {
     return (
       <div className="tvshow">
         <Nav />
         <ShowDetails state={this.state} />
+        <button className="btn" onClick={this.handleShowSave} type="submit">
+          Watch Later?
+        </button>
       </div>
     );
   }

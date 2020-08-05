@@ -33,7 +33,8 @@ export default {
     return axios.delete("/api/shows/" + id);
   },
 
-  saveShow: function (tvData) {
-    return axios.post("/api/shows", tvData);
+  saveShow: function (id) {
+    console.log();
+    return axios.post("/api/shows/", id);
   },
 };
