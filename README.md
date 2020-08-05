@@ -39,7 +39,7 @@ http://tv-track-2020.herokuapp.com/
 
 You can reach the developers at the links below.
 
-Elly Burgess: (https://https://react-portfolio-ecb.herokuapp.com/
+Elly Burgess: (https://react-portfolio-ecb.herokuapp.com/
 )
 
 Stephen Miller: (https://stephen-miller-react-portfolio.herokuapp.com/)
