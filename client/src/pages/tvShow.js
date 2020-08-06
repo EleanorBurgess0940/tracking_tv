@@ -4,6 +4,9 @@ import Nav from "../components/Nav";
 import ShowDetails from "../components/ShowDetails";
 import { Redirect } from "react-router-dom";
 
+import "react-notifications/lib/notifications.css";
+import { NotificationManager } from "react-notifications";
+
 class tvShow extends Component {
   state = {
     shows: [],
@@ -59,6 +62,10 @@ class tvShow extends Component {
     }).then((res) => {
       console.log("hello ", res);
     });
+    NotificationManager.success(
+      "You have successfully saved a show!",
+      "Success!"
+    );
     this.setState({ redirectTo: "/savedshows" });
   };
 
