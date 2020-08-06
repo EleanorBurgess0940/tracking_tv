@@ -1,10 +1,8 @@
 import React from "react";
 import "./style.css";
-import { useHistory } from "react-router-dom";
-import TvCard from "../../components/TvCard";
+import SavedTvCard from "../SavedTvCard/index.js";
 
 function UserCard(props) {
-  const history = useHistory();
   const displayShows = () => {
     const shows = props.shows;
     const chunkSize = 4;
@@ -15,7 +13,7 @@ function UserCard(props) {
     return showsChunked.map((showChunk, i) => (
       <div className="row" key={i}>
         {showChunk.map((show, j) => (
-          <TvCard key={j} name={show[0]} poster={show[2]} id={show[1]} />
+          <SavedTvCard key={j} name={show[0]} poster={show[2]} id={show[1]} />
         ))}
       </div>
     ));

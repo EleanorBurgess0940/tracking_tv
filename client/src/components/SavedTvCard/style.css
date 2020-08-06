@@ -1,0 +1,15 @@
+.card {
+  border-color: #005e66;
+  border-width: 3px;
+  background-color: #1a0f00;
+  margin-bottom: 10px;
+}
+
+#show-title {
+  font-family: "Mulish", sans-serif;
+  font-weight: bold;
+}
+
+.btn-outline-light {
+  margin: 15px;
+}
