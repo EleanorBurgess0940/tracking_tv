@@ -19,8 +19,8 @@ const userSchema = new Schema({
 
   shows: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Show",
+      type: Array,
+      ref: "shows",
     },
   ],
 });
