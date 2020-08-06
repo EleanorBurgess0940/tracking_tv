@@ -2,12 +2,10 @@ import SearchResults from "../components/searchResults";
 import API from "../utils/API";
 import React, { Component } from "react";
 import MemberSearch from "../components/MemberSearch";
-import UserCard from "../components/UserCard";
 import MemberNav from "../components/MemberNav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import SearchHeader from "../components/SearchHeader";
-import SavedHeader from "../components/SavedHeader";
 
 
 class member extends Component {
@@ -91,6 +89,7 @@ class member extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
+          <SearchHeader />
           <SearchResults tvShows={this.state.tvShows} />
         </div>
       );

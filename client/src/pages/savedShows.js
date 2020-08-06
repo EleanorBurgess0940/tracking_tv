@@ -1,7 +1,6 @@
-import SearchResults from "../components/searchResults";
 import API from "../utils/API";
 import React, { Component } from "react";
-import MemberSearch from "../components/MemberSearch";
+import SavedHeader from "../components/SavedHeader";
 import UserCard from "../components/UserCard";
 import MemberNav from "../components/MemberNav";
 import axios from "axios";
@@ -82,8 +81,10 @@ class savedShows extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div className="wrapper">
+        <div>
           <MemberNav updateUser={this.updateUser} />
+          <SavedHeader />
+          <br></br>
           <UserCard shows={this.state.shows} />
         </div>
       );

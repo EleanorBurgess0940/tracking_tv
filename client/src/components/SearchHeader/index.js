@@ -4,7 +4,7 @@ import "./style.css";
 function SearchHeader() {
     return (
         <div>
-            <h3 className="card-header">Discover your next TV obsession</h3>
+            <h3 className="card-header">What's popular today?</h3>
             <br></br>
         </div>
     );
