@@ -17,7 +17,7 @@ The volume of TV choices and streaming options can be overwhelming. Where does s
 
 TV Track allows users to cut through the clutter found on most streaming services. The home page provides a list of popular shows and a simple search interface. 
 
-Each TV show card includes an "info" button that takes users to a page dedicated to the selected show. Users can then save a show from its dedicated page to their watchlist, provided they have created an account and are logged in. 
+Each show card includes an "info" button that takes users to a page dedicated to the selected show. Users can save a show from its dedicated page to their watchlist, provided they have created an account and are logged in. 
 
 ## Installation
 
@@ -25,11 +25,9 @@ Run `npm install` to include all necessary dependencies.
 
 `npm start`
 
-Runs the app in development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in development mode.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The application is also located on Heroku:
 
