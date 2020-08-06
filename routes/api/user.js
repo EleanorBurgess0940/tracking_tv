@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const User = require("../../models/User.js");
+const Show = require("../../models/Show.js");
 let passport = require("../../config/passport/passport");
+const tvControllers = require("../../controllers/tvControllers");
 
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) return next();
@@ -71,5 +73,22 @@ router.post("/logout", (req, res) => {
     res.send({ msg: "no user to log out" });
   }
 });
+
+router.post("/show", (req, res) => {
+  console.log("==========post==========");
+  console.log(req.body);
+  User.findOneAndUpdate(
+    { email: req.body.email },
+    { $addToSet: { shows: req.body.TheMovieDBAPIshowID } },
+    function (error, success) {
+      if (error) {
+        console.log("error", error);
+      } else {
+        console.log("sucess", success);
+      }
+    }
+  );
+});
+//router.get("/show").get(tvControllers.findAll);
 
 module.exports = router;

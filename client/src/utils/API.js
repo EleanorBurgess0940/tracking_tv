@@ -26,15 +26,15 @@ export default {
   },
 
   getSavedShows: function () {
-    return axios.get("/api/shows");
+    return axios.get("/api/show");
   },
 
   deleteShow: function (id) {
-    return axios.delete("/api/shows/" + id);
+    return axios.delete("/api/show/" + id);
   },
 
   saveShow: function (id) {
-    console.log();
-    return axios.post("/api/shows/", id);
+    console.log("maybe");
+    return axios.post("/api/show", id);
   },
 };

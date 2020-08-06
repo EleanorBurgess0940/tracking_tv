@@ -46,25 +46,26 @@ class tvShow extends Component {
     });
   }
 
-  handleShowSave = (res) => {
-    console.log(res);
+  handleShowSave = (event) => {
+    console.log(event);
     API.saveShow({
       TheMovieDBAPIshowID: localStorage.getItem("showid"),
-      name: tvShow,
+      name: this.state.tvshow,
       hasWatched: false,
-    }).then(console.log("hello"));
+      email: window.sessionStorage.getItem("email"),
+    }).then((res) => {
+      console.log("hello ", res);
+    });
   };
 
   render() {
     return (
       <div className="tvshow">
         <Nav />
-        <ShowDetails state={this.state} />
-        <button className="btn btn-outline-light" onClick={this.handleShowSave} type="submit">
-          Watch Later?
-        </button>
+        <ShowDetails state={this.state} handleShowSave={this.handleShowSave} />
       </div>
     );
   }
 }
+
 export default tvShow;

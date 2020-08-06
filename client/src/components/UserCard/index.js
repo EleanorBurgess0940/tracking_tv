@@ -30,38 +30,41 @@ class UserCard extends Component {
   };
 
   render() {
-    return (
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <Card title="Saved Shows">
-              {this.state.shows.length ? (
-                <List>
-                  {this.state.shows.map((shows) => (
-                    <Show
-                      key={shows._id}
-                      name={shows.name}
-                      idNumber={shows.TheMovieDBAPIshowID}
-                      hasWatched={shows.hasWatched}
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleShowDelete(shows._id)}
-                          className="btn btn-danger ml-2"
-                        >
-                          Delete
-                        </button>
-                      )}
-                    />
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center">No Saved Books</h2>
-              )}
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    );
+    // console.log(this.state.shows.length !);
+    if (this.state.shows) {
+      return (
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <Card title="Saved Shows">
+                {this.state.shows.length ? (
+                  <List>
+                    {this.state.shows.map((shows) => (
+                      <Show
+                        key={shows._id}
+                        name={shows.name}
+                        idNumber={shows.TheMovieDBAPIshowID}
+                        hasWatched={shows.hasWatched}
+                        Button={() => (
+                          <button
+                            onClick={() => this.handleShowDelete(shows._id)}
+                            className="btn btn-danger ml-2"
+                          >
+                            Delete
+                          </button>
+                        )}
+                      />
+                    ))}
+                  </List>
+                ) : (
+                  <h2 className="text-center">No Saved Books</h2>
+                )}
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      );
+    }
   }
 }
 

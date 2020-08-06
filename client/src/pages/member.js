@@ -32,12 +32,14 @@ class member extends Component {
           loggedIn: true,
           username: response.data.user.username,
         });
+        window.sessionStorage.setItem("email", response.data.user.email);
       } else {
         this.setState({
           loggedIn: false,
           username: null,
           redirectTo: "/login",
         });
+        window.sessionStorage.setItem("email", "null");
       }
     });
   }
@@ -73,6 +75,7 @@ class member extends Component {
 
   render() {
     if (this.state.redirectTo) {
+      console.log(this.state.redirectTo);
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
@@ -82,7 +85,7 @@ class member extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
-          <UserCard />
+
           <SearchResults tvShows={this.state.tvShows} />
         </div>
       );
