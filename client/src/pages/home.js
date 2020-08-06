@@ -1,3 +1,5 @@
+//Homepage
+//various variables are brought in
 import API from "../utils/API";
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
@@ -7,6 +9,7 @@ import Nav from "../components/Nav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
+//couple of classes are set
 class homepage extends Component {
   state = {
     search: "",
@@ -15,12 +18,17 @@ class homepage extends Component {
     searchHeader: "What's popular today",
   };
 
+  //When homepage loads the api call to get popular shows is sent
+  //changes the array tvShows to popular show results
   componentDidMount() {
     API.getPopular()
       .then((res) => this.setState({ tvShows: res.data.results }))
       .catch((err) => console.log(err));
     this.getUser();
   }
+
+  //axios will try and get user and if so the state will change to logged in
+  //it will also redirect you to member page
 
   getUser() {
     axios.get("/api/user").then((response) => {
@@ -44,10 +52,12 @@ class homepage extends Component {
     });
   }
 
+  //lets user type in and it changes the value of search
   handleInputChange = (event) => {
     this.setState({ search: event.target.value });
   };
 
+  //handles the search functionality
   handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -62,6 +72,7 @@ class homepage extends Component {
       .catch((err) => this.setState({ error: err.message }));
   };
 
+  //renders the rest of the page
   render() {
     if (this.state.redirectTo) {
       console.log(this.state.redirectTo);
@@ -70,6 +81,7 @@ class homepage extends Component {
       return (
         <div className="homepage">
           <Nav />
+
           <Jumbotron
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}

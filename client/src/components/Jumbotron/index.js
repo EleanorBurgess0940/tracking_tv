@@ -1,3 +1,5 @@
+//This component will create the jumbotorn that includes our search bar/ button
+
 import React from "react";
 import "./style.css";
 

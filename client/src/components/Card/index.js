@@ -1,3 +1,6 @@
+//basic formatting for a card
+//used multiple times to display various tv Shows
+
 import React from "react";
 
 function Card({ icon, title, children }) {

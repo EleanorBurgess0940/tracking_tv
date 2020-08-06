@@ -1,3 +1,6 @@
+//functionality of the saved shows card.
+//this includes the delete button on the members page
+
 import React from "react";
 import "./style.css";
 import noImage from "../../images/noImageFound.png";
@@ -6,6 +9,7 @@ import API from "../../utils/API";
 function SavedTvCard(props) {
   const handleDelete = () => {
     console.log(props);
+    //API call that will delete shows from the members saved shows page
     API.deleteShow({
       TheMovieDBAPIshowID: props.id,
       email: window.sessionStorage.getItem("email"),

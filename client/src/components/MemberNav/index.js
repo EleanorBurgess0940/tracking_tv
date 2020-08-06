@@ -1,16 +1,22 @@
+//Different from the nav bar for the member page
+//includes logout functionality
+
 import React, { Component } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+//includes notification manager for success and error
 import { NotificationManager } from "react-notifications";
 
 class MemberNav extends Component {
   constructor() {
     super();
+    //helps take this.signout value to another page
     this.signout = this.signout.bind(this);
   }
 
+  //axios call that allows logout
   signout(event) {
     event.preventDefault();
     axios
@@ -22,6 +28,7 @@ class MemberNav extends Component {
             username: null,
             redirectTo: "/",
           });
+          //react notifications
           NotificationManager.success(
             "You have successfully logged out!",
             "Success!"
@@ -29,6 +36,7 @@ class MemberNav extends Component {
           this.setState({});
         }
       })
+      //error message if there is one
       .catch((error) => {
         console.log(error);
         console.log("Logout error");

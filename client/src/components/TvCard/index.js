@@ -1,3 +1,7 @@
+//tv cards that are on the home page
+//button sends the user to the information page
+//local storage sets id to be called up later
+
 import React from "react";
 import "./style.css";
 import noImage from "../../images/noImageFound.png";

@@ -1,30 +1,36 @@
+//Signup form
+//Functionality for the signup form
+
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./style.css";
 import axios from "axios";
 import Nav from "../Nav";
 
-// React Notification
+// React Notifications
 import { NotificationManager } from "react-notifications";
 
 export default class signUp extends Component {
   constructor() {
     super();
+    //user state
     this.state = {
       email: "",
       password: "",
       redirectTo: "",
     };
+    //helps bring handleSubmit and handle Change to other pages
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
+  //changes as the user types it in
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  //axios call to the mongoose platform
   handleSubmit(event) {
     event.preventDefault();
     axios
@@ -37,6 +43,7 @@ export default class signUp extends Component {
           this.setState({
             redirectTo: "/",
           });
+          //react notifications
           NotificationManager.error(
             "There was an error when signing up!",
             "Error"
@@ -45,6 +52,7 @@ export default class signUp extends Component {
           this.setState({
             redirectTo: "/login",
           });
+          //react notifications
           NotificationManager.success(
             "You have successfully signed up!",
             "Success!"

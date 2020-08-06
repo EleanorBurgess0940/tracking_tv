@@ -1,3 +1,6 @@
+//Allows the header to change if its on popular shows or search results
+//gives the page some clarity
+
 import React from "react";
 import "./style.css";
 

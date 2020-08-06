@@ -1,6 +1,4 @@
-// TheMovieDBAPIshowID: Number,
-// name: String,
-// hasWatched: false
+//This will create cards that include the props from the saved TvShows that the user has saved
 
 import React from "react";
 import { Row, Col } from "../Grid";

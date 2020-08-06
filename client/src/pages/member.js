@@ -1,3 +1,7 @@
+//member Page
+//is protected using passport
+//various imports that are needed
+
 import SearchResults from "../components/searchResults";
 import API from "../utils/API";
 import React, { Component } from "react";
@@ -7,6 +11,7 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import SearchHeader from "../components/SearchHeader";
 
+//various states are set
 class member extends Component {
   constructor() {
     super();
@@ -20,12 +25,13 @@ class member extends Component {
       redirectTo: null,
       searchHeader: "Whats popular today",
     };
-
+    //helps the states go to other pages
     this.getUser = this.getUser.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.updateUser = this.updateUser.bind(this);
   }
 
+  //Sees if there is a user logged in and if not sends them to the login page
   getUser() {
     axios.get("/api/user").then((response) => {
       if (response.data.user) {
@@ -48,9 +54,11 @@ class member extends Component {
     });
   }
 
+  //when page loads see if someone is logged in
   componentDidMount() {
     this.getUser();
 
+    //also load popular shows
     API.getPopular()
       .then((res) => this.setState({ tvShows: res.data.results }))
       .catch((err) => console.log(err));
@@ -60,6 +68,8 @@ class member extends Component {
     this.setState({ search: event.target.value });
   };
 
+  //basic search functionality below
+  //changes popular shows into search results
   handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -74,10 +84,12 @@ class member extends Component {
     this.setState({ searchHeader: "Search results" });
   };
 
+  //updates user to keep someone logged in
   updateUser(userObject) {
     this.setState(userObject);
   }
 
+  //renders rest of page
   render() {
     if (this.state.redirectTo) {
       console.log(this.state.redirectTo);

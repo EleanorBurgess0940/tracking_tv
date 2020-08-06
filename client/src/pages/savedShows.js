@@ -1,3 +1,6 @@
+//saved Shows Page
+//is protected using passport
+//various imports that are needed
 import API from "../utils/API";
 import React, { Component } from "react";
 import SavedHeader from "../components/SavedHeader";
@@ -6,6 +9,7 @@ import MemberNav from "../components/MemberNav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
+//various states are set
 class savedShows extends Component {
   constructor() {
     super();
@@ -19,11 +23,13 @@ class savedShows extends Component {
       redirectTo: null,
     };
 
+    //helps the states go to other pages
     this.getUser = this.getUser.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.updateUser = this.updateUser.bind(this);
   }
 
+  //Sees if there is a user logged in and if not sends them to the login page
   getUser() {
     axios.get("/api/user").then((response) => {
       if (response.data.user) {
@@ -46,9 +52,11 @@ class savedShows extends Component {
     });
   }
 
+  //when page loads see if someone is logged in
   componentDidMount() {
     this.getUser();
 
+    //also load popular shows
     API.getPopular()
       .then((res) => this.setState({ tvShows: res.data.results }))
       .catch((err) => console.log(err));
@@ -58,6 +66,8 @@ class savedShows extends Component {
     this.setState({ search: event.target.value });
   };
 
+  //basic search functionality below
+  //changes popular shows into search results
   handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -71,10 +81,12 @@ class savedShows extends Component {
       .catch((err) => this.setState({ error: err.message }));
   };
 
+  //updates user to keep someone logged in
   updateUser(userObject) {
     this.setState(userObject);
   }
 
+  //renders rest of page
   render() {
     if (this.state.redirectTo) {
       console.log(this.state.redirectTo);

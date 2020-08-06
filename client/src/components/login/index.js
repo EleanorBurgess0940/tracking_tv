@@ -1,11 +1,17 @@
+//Login component
+//makes functionality of the login button
+//including the notification that shows up in the right corner
+
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./style.css";
 import Nav from "../Nav";
 
+//imports the notification manager that allows notifactions of success and not success
 import { NotificationManager } from "react-notifications";
 
+//various states
 class login extends Component {
   constructor() {
     super();
@@ -15,16 +21,19 @@ class login extends Component {
       redirectTo: null,
       loggedIn: "",
     };
+    //helps get what this is to other pages
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
+  //helps correct the target name with the user input
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  //axios call that connects to the mongoose database
   handleSubmit(event) {
     event.preventDefault();
 
@@ -40,16 +49,19 @@ class login extends Component {
             loggedIn: true,
             email: response.data.email,
           });
+          //react notifactions
           NotificationManager.success(
             "You have successfully logged in!",
             "Success!"
           );
+          //reroutes to member page
           this.setState({
             redirectTo: "/member",
           });
           // update the state to redirect to home
         }
       })
+      //if error the console and notification manager will alert
       .catch((error) => {
         console.log("login error: ");
         console.log(error);
@@ -61,6 +73,7 @@ class login extends Component {
   }
 
   render() {
+    //helps return to login page or go on to member page
     if (this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
