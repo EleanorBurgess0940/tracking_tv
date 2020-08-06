@@ -99,4 +99,24 @@ router.get("/api/show", (req, res) => {
   console.log(req.body);
 });
 
+router.post("/delete", (req, res) => {
+  console.log("==========delete==========");
+  console.log(req.body);
+  User.findOneAndUpdate(
+    { email: req.body.email },
+    {
+      $pull: {
+        shows: [req.body.name, req.body.TheMovieDBAPIshowID, req.body.poster],
+      },
+    },
+    function (error, success) {
+      if (error) {
+        console.log("error", error);
+      } else {
+        console.log("sucess", success);
+      }
+    }
+  );
+});
+
 module.exports = router;
