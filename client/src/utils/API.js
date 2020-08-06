@@ -30,7 +30,8 @@ export default {
   },
 
   deleteShow: function (id) {
-    return axios.delete("/api/show/" + id);
+    console.log("delete, ", id);
+    return axios.post("/api/delete", id);
   },
 
   saveShow: function (id) {

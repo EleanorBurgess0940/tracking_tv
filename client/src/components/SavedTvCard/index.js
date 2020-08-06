@@ -1,13 +1,21 @@
 import React from "react";
 import "./style.css";
 import noImage from "../../images/noImageFound.png";
+import API from "../../utils/API";
 import { useHistory } from "react-router-dom";
 
 function SavedTvCard(props) {
   const history = useHistory();
-  const handleRedirect = () => {
-    localStorage.setItem("showid", props.id);
-    history.push("/tvshow");
+  const handleDelete = () => {
+    console.log(props);
+    API.deleteShow({
+      TheMovieDBAPIshowID: props.id,
+      email: window.sessionStorage.getItem("email"),
+      name: props.name,
+      poster: props.poster,
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
   if (props.poster) {
     return (
@@ -23,6 +31,15 @@ function SavedTvCard(props) {
           </div>
           <div className="card-body text-white">
             <h4 id="show-title">{props.name}</h4>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="btn btn-outline-light"
+              onClick={() => handleDelete()}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
@@ -41,6 +58,15 @@ function SavedTvCard(props) {
           </div>
           <div className="card-body text-white">
             <h4 id="show-title">{props.name}</h4>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="btn btn-outline-light"
+              onClick={() => handleDelete()}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
