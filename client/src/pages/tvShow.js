@@ -1,3 +1,6 @@
+//information page
+//various imports that are needed
+
 import API from "../utils/API";
 import React, { Component } from "react";
 import Nav from "../components/Nav";
@@ -7,6 +10,7 @@ import { Redirect } from "react-router-dom";
 import "react-notifications/lib/notifications.css";
 import { NotificationManager } from "react-notifications";
 
+//various states are set
 class tvShow extends Component {
   state = {
     shows: [],
@@ -28,12 +32,15 @@ class tvShow extends Component {
     redirectTo: "",
   };
 
+  //when page loads get the information from the show from movie database API
+  //uses local storage to set and keep id around
   componentDidMount() {
     API.getShow(localStorage.getItem("showid")).then((res) => {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
       }
       console.log(res);
+      //res has more information than we use --future development
       this.setState({
         tvshow: res.data.name,
         tvposter: res.data.backdrop_path,
@@ -51,6 +58,7 @@ class tvShow extends Component {
     });
   }
 
+  //button at the end of the tv Show card will save said tv show
   handleShowSave = (event) => {
     console.log(event);
     API.saveShow({
@@ -62,10 +70,12 @@ class tvShow extends Component {
     }).then((res) => {
       console.log("hello ", res);
     });
+    //react notifications
     NotificationManager.success(
       "You have successfully saved a show!",
       "Success!"
     );
+    //sends the user to the saved shows page if logged in
     this.setState({ redirectTo: "/savedshows" });
   };
 
