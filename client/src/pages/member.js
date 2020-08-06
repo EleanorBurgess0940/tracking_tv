@@ -31,12 +31,15 @@ class member extends Component {
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
+          shows: response.data.user.shows,
         });
         window.sessionStorage.setItem("email", response.data.user.email);
+        console.log(this.state.shows);
       } else {
         this.setState({
           loggedIn: false,
           username: null,
+          shows: [],
           redirectTo: "/login",
         });
         window.sessionStorage.setItem("email", "null");
@@ -85,7 +88,7 @@ class member extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
-
+          <UserCard shows={this.state.shows} />
           <SearchResults tvShows={this.state.tvShows} />
         </div>
       );

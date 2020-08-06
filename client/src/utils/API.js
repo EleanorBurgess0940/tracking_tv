@@ -25,8 +25,8 @@ export default {
     );
   },
 
-  getSavedShows: function () {
-    return axios.get("/api/show");
+  getSavedShows: function (id) {
+    return axios.get("/api/show", id);
   },
 
   deleteShow: function (id) {
