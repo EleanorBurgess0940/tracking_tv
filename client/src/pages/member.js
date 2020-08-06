@@ -6,6 +6,9 @@ import UserCard from "../components/UserCard";
 import MemberNav from "../components/MemberNav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import SearchHeader from "../components/SearchHeader";
+import SavedHeader from "../components/SavedHeader";
+
 
 class member extends Component {
   constructor() {
@@ -88,7 +91,9 @@ class member extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
+          <SavedHeader />
           <UserCard shows={this.state.shows} />
+          <SearchHeader />
           <SearchResults tvShows={this.state.tvShows} />
         </div>
       );

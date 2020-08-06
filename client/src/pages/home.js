@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import SearchResults from "../components/searchResults";
 import Nav from "../components/Nav";
+import SearchHeader from "../components/SearchHeader";
 
 class homepage extends Component {
   state = {
@@ -42,6 +43,7 @@ class homepage extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
+        <SearchHeader />
         <SearchResults tvShows={this.state.tvShows} />
       </div>
     );
