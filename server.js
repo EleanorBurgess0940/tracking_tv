@@ -29,24 +29,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.use((req, res, next) => {
-//  next();
-//});
-
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tvusers", {
   useNewUrlParser: true,
   useFindAndModify: false,
 });
-
-//mongoose.connect(
-//  process.env.MONGODB_URI ||
-//    "mongodb://tvShows:tvtrack1@ds163330.mlab.com:63330/heroku_wd9lqp1n",
-//  {
-//    useNewUrlParser: true,
-//    useFindAndModify: false,
-//  }
-//);
 
 // // Add routes, both API and view
 app.use(routes);
