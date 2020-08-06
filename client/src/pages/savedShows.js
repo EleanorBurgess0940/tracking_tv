@@ -6,11 +6,8 @@ import UserCard from "../components/UserCard";
 import MemberNav from "../components/MemberNav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import SearchHeader from "../components/SearchHeader";
-import SavedHeader from "../components/SavedHeader";
 
-
-class member extends Component {
+class savedShows extends Component {
   constructor() {
     super();
     this.state = {
@@ -85,17 +82,13 @@ class member extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div>
+        <div className="wrapper">
           <MemberNav updateUser={this.updateUser} />
-          <MemberSearch
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-          />
-          <SearchResults tvShows={this.state.tvShows} />
+          <UserCard shows={this.state.shows} />
         </div>
       );
     }
   }
 }
 
-export default member;
+export default savedShows;

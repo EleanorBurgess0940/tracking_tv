@@ -2,6 +2,7 @@ import API from "../utils/API";
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import ShowDetails from "../components/ShowDetails";
+import { Redirect } from "react-router-dom";
 
 class tvShow extends Component {
   state = {
@@ -21,6 +22,7 @@ class tvShow extends Component {
     error: "",
     name: "",
     results: [],
+    redirectTo: "",
   };
 
   componentDidMount() {
@@ -57,16 +59,24 @@ class tvShow extends Component {
     }).then((res) => {
       console.log("hello ", res);
     });
+    this.setState({ redirectTo: "/savedshows" });
   };
 
   render() {
-    return (
-      <div className="tvshow">
-        <Nav />
-        <ShowDetails state={this.state} handleShowSave={this.handleShowSave} />
-      </div>
-    );
+    if (this.state.redirectTo) {
+      console.log(this.state.redirectTo);
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <div className="tvshow">
+          <Nav />
+          <ShowDetails
+            state={this.state}
+            handleShowSave={this.handleShowSave}
+          />
+        </div>
+      );
+    }
   }
 }
-
 export default tvShow;
