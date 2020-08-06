@@ -12,6 +12,7 @@ class homepage extends Component {
     search: "",
     error: "",
     results: [],
+    searchHeader: "What's popular today",
   };
 
   componentDidMount() {
@@ -56,6 +57,7 @@ class homepage extends Component {
           throw new Error(res.data.message);
         }
         this.setState({ tvShows: res.data.results });
+        this.setState({ searchHeader: "Search results" });
       })
       .catch((err) => this.setState({ error: err.message }));
   };
@@ -72,7 +74,7 @@ class homepage extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
-          <SearchHeader />
+          <SearchHeader searchHeader={this.state.searchHeader} />
           <SearchResults tvShows={this.state.tvShows} />
         </div>
       );
