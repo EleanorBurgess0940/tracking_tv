@@ -85,7 +85,7 @@ class member extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div className="wrapper">
+        <div>
           <MemberNav updateUser={this.updateUser} />
           <MemberSearch
             handleFormSubmit={this.handleFormSubmit}
