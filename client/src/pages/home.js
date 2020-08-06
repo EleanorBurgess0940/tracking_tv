@@ -2,6 +2,7 @@ import API from "../utils/API";
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import SearchResults from "../components/searchResults";
+import SearchHeader from "../components/SearchHeader";
 import Nav from "../components/Nav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
@@ -71,6 +72,7 @@ class homepage extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
+          <SearchHeader />
           <SearchResults tvShows={this.state.tvShows} />
         </div>
       );
