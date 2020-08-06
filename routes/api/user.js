@@ -79,7 +79,11 @@ router.post("/show", (req, res) => {
   console.log(req.body);
   User.findOneAndUpdate(
     { email: req.body.email },
-    { $addToSet: { shows: req.body.TheMovieDBAPIshowID } },
+    {
+      $addToSet: {
+        shows: [req.body.name, req.body.TheMovieDBAPIshowID, req.body.poster],
+      },
+    },
     function (error, success) {
       if (error) {
         console.log("error", error);
@@ -89,6 +93,10 @@ router.post("/show", (req, res) => {
     }
   );
 });
-//router.get("/show").get(tvControllers.findAll);
+
+router.get("/api/show", (req, res) => {
+  console.log("============get========");
+  console.log(req.body);
+});
 
 module.exports = router;

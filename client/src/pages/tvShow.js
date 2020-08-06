@@ -53,6 +53,7 @@ class tvShow extends Component {
       name: this.state.tvshow,
       hasWatched: false,
       email: window.sessionStorage.getItem("email"),
+      poster: this.state.tvposter,
     }).then((res) => {
       console.log("hello ", res);
     });
