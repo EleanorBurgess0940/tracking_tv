@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import noImage from "../../images/noImageFound.png";
 import { useHistory } from "react-router-dom";
 import TvCard from "../../components/TvCard";
 
