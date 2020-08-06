@@ -2,10 +2,8 @@ import React from "react";
 import "./style.css";
 import noImage from "../../images/noImageFound.png";
 import API from "../../utils/API";
-import { useHistory } from "react-router-dom";
 
 function SavedTvCard(props) {
-  const history = useHistory();
   const handleDelete = () => {
     console.log(props);
     API.deleteShow({

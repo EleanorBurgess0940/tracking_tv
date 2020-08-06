@@ -6,7 +6,6 @@ import MemberNav from "../components/MemberNav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import SearchHeader from "../components/SearchHeader";
-import { set } from "mongoose";
 
 class member extends Component {
   constructor() {
@@ -72,7 +71,7 @@ class member extends Component {
         this.setState({ tvShows: res.data.results });
       })
       .catch((err) => this.setState({ error: err.message }));
-    this.setState({ searchHeader: "Your Search results" });
+    this.setState({ searchHeader: "Search results" });
   };
 
   updateUser(userObject) {

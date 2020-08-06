@@ -1,10 +1,12 @@
 import React from "react";
 import "./style.css";
 
-function SavedHeader() {
+function SavedHeader(props) {
+  console.log(props);
   return (
     <div>
-      <h3 className="card-header">Your Watch List</h3>
+      <h3 className="card-header"> {props.searchHeader} </h3>
+      <br></br>
     </div>
   );
 }
