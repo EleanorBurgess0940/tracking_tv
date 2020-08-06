@@ -6,6 +6,9 @@ import UserCard from "../components/UserCard";
 import MemberNav from "../components/MemberNav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import SearchHeader from "../components/SearchHeader";
+import SavedHeader from "../components/SavedHeader";
+
 
 class member extends Component {
   constructor() {
@@ -82,7 +85,7 @@ class member extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div className="wrapper">
+        <div>
           <MemberNav updateUser={this.updateUser} />
           <MemberSearch
             handleFormSubmit={this.handleFormSubmit}
