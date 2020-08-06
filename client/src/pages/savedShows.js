@@ -7,7 +7,7 @@ import MemberNav from "../components/MemberNav";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-class member extends Component {
+class savedShows extends Component {
   constructor() {
     super();
     this.state = {
@@ -84,15 +84,11 @@ class member extends Component {
       return (
         <div className="wrapper">
           <MemberNav updateUser={this.updateUser} />
-          <MemberSearch
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-          />
-          <SearchResults tvShows={this.state.tvShows} />
+          <UserCard shows={this.state.shows} />
         </div>
       );
     }
   }
 }
 
-export default member;
+export default savedShows;

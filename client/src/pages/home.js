@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import SearchResults from "../components/searchResults";
 import Nav from "../components/Nav";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class homepage extends Component {
   state = {
@@ -15,6 +17,29 @@ class homepage extends Component {
     API.getPopular()
       .then((res) => this.setState({ tvShows: res.data.results }))
       .catch((err) => console.log(err));
+    this.getUser();
+  }
+
+  getUser() {
+    axios.get("/api/user").then((response) => {
+      if (response.data.user) {
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username,
+          shows: response.data.user.shows,
+          redirectTo: "/member",
+        });
+        window.sessionStorage.setItem("email", response.data.user.email);
+        console.log(this.state.shows);
+      } else {
+        this.setState({
+          loggedIn: false,
+          username: null,
+          shows: [],
+        });
+        window.sessionStorage.setItem("email", "null");
+      }
+    });
   }
 
   handleInputChange = (event) => {
@@ -35,16 +60,21 @@ class homepage extends Component {
   };
 
   render() {
-    return (
-      <div className="homepage">
-        <Nav />
-        <Jumbotron
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        />
-        <SearchResults tvShows={this.state.tvShows} />
-      </div>
-    );
+    if (this.state.redirectTo) {
+      console.log(this.state.redirectTo);
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <div className="homepage">
+          <Nav />
+          <Jumbotron
+            handleFormSubmit={this.handleFormSubmit}
+            handleInputChange={this.handleInputChange}
+          />
+          <SearchResults tvShows={this.state.tvShows} />
+        </div>
+      );
+    }
   }
 }
 export default homepage;

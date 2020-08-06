@@ -21,9 +21,6 @@ app.use(
     secret: "taco cat",
     resave: true,
     saveUninitialized: false,
-    cookie: {
-      maxAge: 1000 * 30,
-    },
   })
 );
 app.use(passport.initialize());

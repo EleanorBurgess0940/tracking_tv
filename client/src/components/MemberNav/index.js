@@ -63,6 +63,14 @@ class MemberNav extends Component {
           id="navbarNavAltMarkup"
         >
           <div>
+            <Link className="nav-link text-white app-name" to={"/savedshows"}>
+              Saved Shows
+            </Link>
+            <Link className="nav-link text-white app-name" to={"/member"}>
+              Search
+            </Link>
+          </div>
+          <div>
             <button
               className="btn btn-outline-light"
               id="signout"
