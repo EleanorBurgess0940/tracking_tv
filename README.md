@@ -1,7 +1,10 @@
 # TV Track
 This application allows users to search for TV shows, discover key information and save shows to a watchlist. 
 
+![](client/public/assets/Signup.gif)
+
 The app was built with the MERN stack (MongoDB, Express, React and Node.JS). It relies on The Movie Database (https://www.themoviedb.org/) for external API calls to provide show data. 
+
 
 ## Table of Contents
 1. [Description](#description)
@@ -10,14 +13,14 @@ The app was built with the MERN stack (MongoDB, Express, React and Node.JS). It 
 4. [License](#license)
 5. [Information](#information)
 
-![](client/public/assets/Home.gif)
-
 ## Description
 The volume of TV choices and streaming options can be overwhelming. Where does someone start to narrow down her choices?
 
 TV Track allows users to cut through the clutter found on most streaming services. The home page provides a list of popular shows and a simple search interface. 
 
 Each show card includes an "info" button that takes users to a page dedicated to the selected show. Users can save a show from its dedicated page to their watchlist, provided they have created an account and are logged in. 
+
+![](client/public/assets/SaveShow.gif)
 
 ## Installation
 
