@@ -53,3 +53,5 @@ Contributions and improvements to the project are welcome.
 
 ### Information
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The passport for this app was helped by a tutorial from Brendt Bly at the website https://medium.com/@brendt_bly/simple-mern-passport-app-tutorial-4aec2105e367.
